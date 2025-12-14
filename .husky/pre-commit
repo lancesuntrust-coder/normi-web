@@ -1,18 +1,26 @@
 #!/bin/sh
 . "$(dirname "$0")/husky.sh"
 
-# Run lint-staged to enforce ESLint rules on staged files
-npx lint-staged
+set -e
+echo "[husky] Running lint-staged..."
+npx lint-staged || {
+  echo "[husky] lint-staged failed. Aborting commit." >&2
+  exit 1
+}
 
 # Prevent reintroducing duplicate component locations or barrels
 # Fail if any files are added under src/components root that should be under ui/sections/layout
-if git diff --cached --name-only --diff-filter=A | grep -E '^src/components/(BottomNavPill|Hero|HeroVisual|TopControls|Footer|ScenePreview)\\.tsx$' >/dev/null; then
-  echo "Error: Add components only under canonical folders (ui/, sections/, layout/)."
+ADDED_FILES=$(git diff --cached --name-only --diff-filter=A || true)
+echo "[husky] Added files:" "$ADDED_FILES"
+if echo "$ADDED_FILES" | grep -E '^src/components/(BottomNavPill|Hero|HeroVisual|TopControls|Footer|ScenePreview)\\.tsx$' >/dev/null; then
+  echo "[husky] Error: Add components only under canonical folders (ui/, sections/, layout/)." >&2
   exit 1
 fi
 
 # Fail if a components barrel is reintroduced
-if git diff --cached --name-only --diff-filter=A | grep -E '^src/components/index\\.ts$' >/dev/null; then
-  echo "Error: Do not add barrels. Import canonical components directly."
+if echo "$ADDED_FILES" | grep -E '^src/components/index\\.ts$' >/dev/null; then
+  echo "[husky] Error: Do not add barrels. Import canonical components directly." >&2
   exit 1
 fi
+
+echo "[husky] Pre-commit checks passed."
