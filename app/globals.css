@@ -1,26 +1,53 @@
 @import "tailwindcss";
 
-/* Base theme and warm gradient background */
+/* Design tokens: warm coral → peach → sand; glass surfaces */
 :root {
-  --bg-start: 255 237 213; /* peach */
-  --bg-mid: 252 228 236; /* blush */
-  --bg-end: 219 234 254; /* soft blue */
+  --bg: #fff6f0;
+  --text: #0b0b0b;
+  --muted: #6b7280; /* zinc-500ish */
+  --accent: #ef6f57; /* warm coral */
+  --peach: #ffd9c7;
+  --sand: #f6e7d9;
+  --glass: rgba(255, 255, 255, 0.18);
+  --glass-border: rgba(255, 255, 255, 0.28);
+  --nav-glass: rgba(0, 0, 0, 0.28);
 }
 
-html, body {
-  height: 100%;
-}
+html, body { height: 100%; }
 
+/* Hero background: single soft gradient, calm and premium */
 body {
-  background: radial-gradient(1200px 600px at 10% 20%, rgb(var(--bg-start)) 0%, rgba(var(--bg-start), 0.5) 25%, transparent 60%),
-              radial-gradient(1000px 500px at 80% 10%, rgb(var(--bg-mid)) 0%, rgba(var(--bg-mid), 0.5) 30%, transparent 60%),
-              radial-gradient(900px 500px at 70% 80%, rgb(var(--bg-end)) 0%, rgba(var(--bg-end), 0.5) 35%, transparent 70%),
-              linear-gradient(180deg, #fff, #fdf7f2 60%, #f6fbff 100%);
+  background: radial-gradient(900px 500px at 20% 20%, var(--peach) 0%, rgba(255, 217, 199, 0.65) 35%, transparent 70%),
+              linear-gradient(180deg, var(--bg) 0%, #ffe9df 60%, var(--sand) 100%);
+  color: var(--text);
 }
 
-/* Smooth fonts and spacing defaults */
+/* Utilities: glass cards, nav pill, buttons */
+@layer components {
+  .glass-card {
+    @apply border rounded-2xl shadow-sm backdrop-blur-md;
+    background: var(--glass);
+    border-color: var(--glass-border);
+  }
+  .nav-pill {
+    @apply rounded-full border shadow-md backdrop-blur-md;
+    background: var(--nav-glass);
+    border-color: rgba(255, 255, 255, 0.25);
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-full px-5 py-2 text-white font-medium;
+    background: var(--accent);
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-full px-5 py-2 font-medium border;
+    background: rgba(255, 255, 255, 0.6);
+    border-color: var(--glass-border);
+  }
+}
+
+/* Base tweaks */
 @layer base {
-  * { @apply selection:bg-zinc-200 selection:text-zinc-900; }
+  * { @apply selection:bg-peach-100 selection:text-zinc-900; }
   h1 { @apply tracking-tight; }
   p { @apply leading-relaxed; }
 }
