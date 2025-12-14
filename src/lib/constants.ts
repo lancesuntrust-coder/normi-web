@@ -1,9 +1,9 @@
 export const MOTION = {
   hero: {
-    yRange: [0, 300] as const,
-    yOutput: [0, -18] as const,
-    opacityRange: [0, 300] as const,
-    opacityOutput: [1, 0.92] as const,
+    yRange: [0, 300],
+    yOutput: [0, -18],
+    opacityRange: [0, 300],
+    opacityOutput: [1, 0.92],
   },
 };
 
