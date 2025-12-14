@@ -47,7 +47,6 @@ body {
 
 /* Base tweaks */
 @layer base {
-  * { @apply selection:bg-peach-100 selection:text-zinc-900; }
   h1 { @apply tracking-tight; }
   p { @apply leading-relaxed; }
 }
