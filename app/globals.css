@@ -61,10 +61,12 @@ body {
   border: 1px solid var(--glass-border);
 }
 
-/* Base tweaks */
-@layer base {
-  h1 { @apply tracking-tight; }
-  p { @apply leading-relaxed; }
+/* Base tweaks (plain CSS) */
+h1 {
+  letter-spacing: -0.02em; /* tracking-tight */
+}
+p {
+  line-height: 1.625; /* leading-relaxed */
 }
 /* Remove conflicting Tailwind v4 demo theme and duplicate import.
    Keep warm gradient + glass tokens defined above. */
