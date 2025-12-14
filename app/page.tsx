@@ -2,9 +2,9 @@
 import { useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Lenis from "lenis";
-import { TopControls } from "@/components/TopControls";
-import { NavPill } from "@/components/NavPill";
-import { HeroVisual } from "@/components/HeroVisual";
+import { TopControls } from "@/src/components/ui/TopControls";
+import { NavPill } from "@/src/components/ui/NavPill";
+import { HeroVisual } from "@/src/components/ui/HeroVisual";
 
 export default function Home() {
   // Smooth scrolling via Lenis
