@@ -1,5 +1,31 @@
 @import "tailwindcss";
 
+/* Base theme and warm gradient background */
+:root {
+  --bg-start: 255 237 213; /* peach */
+  --bg-mid: 252 228 236; /* blush */
+  --bg-end: 219 234 254; /* soft blue */
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background: radial-gradient(1200px 600px at 10% 20%, rgb(var(--bg-start)) 0%, rgba(var(--bg-start), 0.5) 25%, transparent 60%),
+              radial-gradient(1000px 500px at 80% 10%, rgb(var(--bg-mid)) 0%, rgba(var(--bg-mid), 0.5) 30%, transparent 60%),
+              radial-gradient(900px 500px at 70% 80%, rgb(var(--bg-end)) 0%, rgba(var(--bg-end), 0.5) 35%, transparent 70%),
+              linear-gradient(180deg, #fff, #fdf7f2 60%, #f6fbff 100%);
+}
+
+/* Smooth fonts and spacing defaults */
+@layer base {
+  * { @apply selection:bg-zinc-200 selection:text-zinc-900; }
+  h1 { @apply tracking-tight; }
+  p { @apply leading-relaxed; }
+}
+@import "tailwindcss";
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
