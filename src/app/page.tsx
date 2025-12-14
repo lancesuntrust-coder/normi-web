@@ -3,11 +3,7 @@ import { useEffect } from "react";
 import Lenis from "lenis";
 import { motion, useScroll, useTransform } from "motion/react";
 import { MessageCircle } from "lucide-react";
-import { TopControls } from "../components/TopControls";
-import { BottomNavPill } from "../components/BottomNavPill";
-import { Hero } from "../components/Hero";
-import { ScenePreview } from "../components/ScenePreview";
-import { Footer } from "../components/Footer";
+import { TopControls, BottomNavPill, Hero, ScenePreview, Footer } from "../components";
 
 export default function Home() {
   // Smooth scrolling via Lenis (micro motion philosophy)
