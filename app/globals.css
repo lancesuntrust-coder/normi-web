@@ -2,12 +2,12 @@
 
 /* Design tokens: warm coral → peach → sand; glass surfaces */
 :root {
-  --bg: #fff6f0;
+  --bg: #ffffff;
   --text: #0b0b0b;
   --muted: #6b7280; /* zinc-500ish */
   --accent: #ef6f57; /* warm coral */
-  --peach: #ffd9c7;
-  --sand: #f6e7d9;
+  --peach: #ffffff;
+  --sand: #ffffff;
   --glass: rgba(255, 255, 255, 0.18);
   --glass-border: rgba(255, 255, 255, 0.28);
   --nav-glass: rgba(0, 0, 0, 0.28);

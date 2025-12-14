@@ -1,7 +1,7 @@
 "use client";
 import { useEffect } from "react";
 import Lenis from "lenis";
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { MessageCircle } from "lucide-react";
 import { TopControls, BottomNavPill, Hero, ScenePreview, Footer } from "../components";
 
