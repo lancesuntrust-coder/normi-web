@@ -11,20 +11,9 @@ export function Hero() {
   return (
     <section
       className="relative min-h-screen px-6 sm:px-10 overflow-hidden"
-      style={{
-        background:
-          "linear-gradient(135deg, #E85C6A 0%, #F08D73 35%, #F6C7A3 100%)",
-      }}
+      style={{ background: "#ffffff" }}
     >
-      {/* Subtle warm vignette toward bottom-left */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(circle at 15% 85%, rgba(0,0,0,0.16) 0%, rgba(0,0,0,0.0) 55%)",
-        }}
-      />
+      {/* Flat background only; no gradients or vignettes */}
       {/* Floating controls added outside from page */}
       <div className="mx-auto max-w-7xl grid grid-cols-1 sm:grid-cols-2 items-center gap-12 pt-28">
         <motion.div style={{ y: yText, opacity: textOpacity }} className="space-y-6">
