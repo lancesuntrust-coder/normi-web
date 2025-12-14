@@ -1,7 +1,7 @@
 "use client";
 import { Home } from "lucide-react";
 import { useMemo, useState } from "react";
-import { cn } from "@/src/lib/cn";
+import { cn } from "@/lib/cn";
 
 type NavKey = "home" | "scenes" | "classes" | "community" | "teachers";
 
@@ -20,7 +20,7 @@ export function BottomNavPill({ activeKey = "home" }: { activeKey?: NavKey }) {
   );
 
   const pillClasses = cn(
-    "fixed bottom-6 left-1/2 -translate-x-1/2 z-40",
+    "fixed bottom-6 left-1/2 -translate-x-1/2",
     "overflow-hidden",
     "flex items-center",
     "px-2",
@@ -29,7 +29,7 @@ export function BottomNavPill({ activeKey = "home" }: { activeKey?: NavKey }) {
   );
 
   return (
-    <nav className={pillClasses} style={{ height: 46 }}>
+    <nav className={pillClasses} style={{ height: 46, zIndex: "var(--z-nav)" }}>
       <div className="flex items-center gap-3" style={{ marginLeft: 2 }}>
         {items.map((item) => {
           const isActive = activeKey === item.key;

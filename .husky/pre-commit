@@ -1,0 +1,18 @@
+#!/bin/sh
+. "$(dirname "$0")/husky.sh"
+
+# Run lint-staged to enforce ESLint rules on staged files
+npx lint-staged
+
+# Prevent reintroducing duplicate component locations or barrels
+# Fail if any files are added under src/components root that should be under ui/sections/layout
+if git diff --cached --name-only --diff-filter=A | grep -E '^src/components/(BottomNavPill|Hero|HeroVisual|TopControls|Footer|ScenePreview)\\.tsx$' >/dev/null; then
+  echo "Error: Add components only under canonical folders (ui/, sections/, layout/)."
+  exit 1
+fi
+
+# Fail if a components barrel is reintroduced
+if git diff --cached --name-only --diff-filter=A | grep -E '^src/components/index\\.ts$' >/dev/null; then
+  echo "Error: Do not add barrels. Import canonical components directly."
+  exit 1
+fi

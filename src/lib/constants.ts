@@ -12,8 +12,3 @@ export const Z = {
   content: 20,
   nav: 40,
 };
-
-export const COLORS = {
-  brand: "var(--brand-coral)",
-  onBrand: "var(--on-brand)",
-};

@@ -32,14 +32,14 @@ export default function Home() {
       <TopControls />
       <BottomNavPill />
       <motion.div
-        className="fixed bottom-8 left-6 z-30 text-xs"
-        style={{ color: "var(--muted)", opacity: scrollHintOpacity as unknown as number }}
+        className="fixed bottom-8 left-6 text-xs"
+        style={{ color: "var(--muted)", opacity: scrollHintOpacity as unknown as number, zIndex: "var(--z-content)" }}
       >
         <div className="rounded-full px-3 py-1 backdrop-blur-md border" style={{ background: "var(--glass)", borderColor: "var(--glass-border)" }}>
           Scroll
         </div>
       </motion.div>
-      <div className="fixed bottom-8 right-6 z-40">
+      <div className="fixed bottom-8 right-6" style={{ zIndex: "var(--z-nav)" }}>
         <button className="rounded-full px-4 py-2 backdrop-blur-md border inline-flex items-center gap-2" style={{ background: "var(--glass)", borderColor: "var(--glass-border)", color: "var(--text)" }}>
           <MessageCircle size={16} /> Support
         </button>

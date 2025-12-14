@@ -13,6 +13,40 @@ const eslintConfig = defineConfig([
     "build/**",
     "next-env.d.ts",
   ]),
+  {
+    files: ["src/**/*.{ts,tsx}"],
+    rules: {
+      // Prefer alias imports over relative component barrels
+      "no-restricted-imports": [
+        "error",
+        {
+          patterns: [
+            {
+              group: ["../components", "../../components"],
+              message:
+                "Import canonical components via '@/components/...', not relative barrels.",
+            },
+          ],
+        },
+      ],
+      // Disallow raw hex colors (e.g., #fff, #ffffff) in TS/TSX literals
+      "no-restricted-syntax": [
+        "error",
+        {
+          selector:
+            "Literal[value=/^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/]",
+          message:
+            "Use CSS variables (tokens) like 'var(--text)' instead of raw hex colors.",
+        },
+        {
+          selector:
+            "Literal[value=/^rgba?\\(.+\\)$/]",
+          message:
+            "Use CSS variables (tokens) like 'var(--glass)' instead of raw rgba/rgba strings.",
+        },
+      ],
+    },
+  },
 ]);
 
 export default eslintConfig;

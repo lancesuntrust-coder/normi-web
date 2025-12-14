@@ -8,10 +8,15 @@
   /* Text */
   --text-strong: #0b0b0b;
   --text-muted: #6b7280;
+  /* Aliases used in app */
+  --text: var(--text-strong);
+  --muted: var(--text-muted);
 
   /* Glass overlays (if re-enabled later) */
   --glass-overlay: rgba(255, 255, 255, 0.12);
   --glass-border: rgba(255, 255, 255, 0.35);
+  /* Aliases used in app */
+  --glass: var(--glass-overlay);
 
   /* Radii */
   --radius-pill: 9999px;
@@ -19,6 +24,19 @@
 
   /* Shadows (kept for future; default none) */
   --shadow-soft: 0 16px 40px rgba(0,0,0,0.18);
+
+  /* Hero visual peach glows */
+  --peach-100: #ffd9c7;
+  --peach-200: #ffe7d8;
+  --peach-300: #fff2ea;
+  /* Ambient radial glow */
+  --hero-ambient-start: rgba(255,255,255,0.45);
+  --hero-ambient-end: rgba(255,255,255,0);
+
+  /* Z-index tokens */
+  --z-video: 0;
+  --z-content: 20;
+  --z-nav: 40;
 }
 
 /* BottomNav highlight overlays */

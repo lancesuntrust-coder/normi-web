@@ -1,7 +1,7 @@
 "use client";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { MOTION } from "@/src/lib/constants";
-import { Button } from "@/src/components/ui/Button";
+import { MOTION } from "@/lib/constants";
+import { Button } from "@/components/ui/Button";
 
 export function Hero() {
   const { scrollY } = useScroll();
@@ -18,10 +18,10 @@ export function Hero() {
         loop
         playsInline
         poster="/hero/hero.jpg"
-        style={{ pointerEvents: "none" }}
+        style={{ pointerEvents: "none", zIndex: "var(--z-video)" }}
       />
 
-      <div className="absolute inset-0 z-20">
+      <div className="absolute inset-0" style={{ zIndex: "var(--z-content)" }}>
         <motion.div
           style={{ y: yText, opacity: textOpacity }}
           className="absolute left-6 bottom-24 sm:left-10 sm:bottom-24 space-y-6"

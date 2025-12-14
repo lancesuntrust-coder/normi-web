@@ -7,7 +7,8 @@ export function TopControls() {
   return (
     <>
       <motion.div
-        className="fixed top-6 left-6 z-40"
+        className="fixed top-6 left-6"
+        style={{ zIndex: "var(--z-nav)" }}
         initial={{ opacity: 0, y: -8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
@@ -18,8 +19,8 @@ export function TopControls() {
       </motion.div>
 
       <motion.nav
-        className="fixed top-6 right-6 z-40 flex items-center gap-4 rounded-full px-4 py-2 border text-sm"
-        style={{ background: "var(--glass-overlay)", backdropFilter: "blur(32px)", borderColor: "var(--glass-border)" }}
+        className="fixed top-6 right-6 flex items-center gap-4 rounded-full px-4 py-2 border text-sm"
+        style={{ background: "var(--glass-overlay)", backdropFilter: "blur(32px)", borderColor: "var(--glass-border)", zIndex: "var(--z-nav)" }}
         initial={{ opacity: 0, y: -8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}

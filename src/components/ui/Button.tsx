@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { cn } from "@/src/lib/cn";
+import { cn } from "@/lib/cn";
 
 type Variant = "primary" | "glass" | "ghost";
 type ButtonProps = {

@@ -29,9 +29,9 @@ export function HeroVisual() {
         <motion.div style={{ y: yVisual, filter: "drop-shadow(0 40px 80px rgba(0,0,0,0.18))" }} className="absolute right-0 top-1/2 -translate-y-1/2">
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="relative">
-              <div className="absolute -left-24 -top-10 h-64 w-64 rounded-full" style={{ background: "#ffd9c7", opacity: 0.65 }} />
-              <div className="absolute -left-10 -top-6 h-80 w-80 rounded-full" style={{ background: "#ffe7d8", opacity: 0.75 }} />
-              <div className="absolute -left-2  top-2  h-96 w-96 rounded-full" style={{ background: "#fff2ea", opacity: 0.85 }} />
+              <div className="absolute -left-24 -top-10 h-64 w-64 rounded-full" style={{ background: "var(--peach-100)", opacity: 0.65 }} />
+              <div className="absolute -left-10 -top-6 h-80 w-80 rounded-full" style={{ background: "var(--peach-200)", opacity: 0.75 }} />
+              <div className="absolute -left-2  top-2  h-96 w-96 rounded-full" style={{ background: "var(--peach-300)", opacity: 0.85 }} />
               {[0, 1, 2, 3, 4, 5].map((i) => (
                 <div
                   key={i}
@@ -54,7 +54,7 @@ export function HeroVisual() {
         </motion.div>
       )}
 
-      <div aria-hidden="true" className="absolute inset-0" style={{ background: "radial-gradient(1200px 560px at 65% 50%, rgba(255,255,255,0.45), rgba(255,255,255,0) 60%)", maskImage: "radial-gradient(560px 560px at 65% 50%, rgba(0,0,0,1), rgba(0,0,0,0.0) 70%)" }} />
+      <div aria-hidden="true" className="absolute inset-0" style={{ background: "radial-gradient(1200px 560px at 65% 50%, var(--hero-ambient-start), var(--hero-ambient-end) 60%)", maskImage: "radial-gradient(560px 560px at 65% 50%, rgba(0,0,0,1), rgba(0,0,0,0.0) 70%)" }} />
     </div>
   );
 }
