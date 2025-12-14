@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@import "../src/styles/tokens.css";
+@import "../src/styles/utilities.css";
 
 /* Design tokens: warm coral → peach → sand; glass surfaces */
 :root {

@@ -1,0 +1,28 @@
+:root {
+  /* Brand */
+  --brand-coral: #f84d36;
+  --brand-coral-strong: #f05a3c;
+  --brand-coral-soft: #f26445;
+  --on-brand: #ffffff;
+
+  /* Text */
+  --text-strong: #0b0b0b;
+  --text-muted: #6b7280;
+
+  /* Glass overlays (if re-enabled later) */
+  --glass-overlay: rgba(255, 255, 255, 0.12);
+  --glass-border: rgba(255, 255, 255, 0.35);
+
+  /* Radii */
+  --radius-pill: 9999px;
+  --radius-inner: 18px;
+
+  /* Shadows (kept for future; default none) */
+  --shadow-soft: 0 16px 40px rgba(0,0,0,0.18);
+}
+
+/* BottomNav highlight overlays */
+:root {
+  --nav-highlight-active: rgba(255,255,255,0.16);
+  --nav-highlight-hover: rgba(255,255,255,0.12);
+}
