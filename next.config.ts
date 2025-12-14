@@ -4,8 +4,8 @@ const nextConfig: NextConfig = {
   /* config options here */
   reactCompiler: true,
   experimental: {
-    turbo: {
-      root: __dirname,
+    turbopack: {
+      rootDirectory: __dirname,
     },
   },
 };
