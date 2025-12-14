@@ -1,70 +1,60 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 
-// Abstract hero visual: layered rings and waves suggesting conversation
 export function HeroVisual() {
-  const ring = (delay: number, size: string, color: string, opacity = 0.8) => (
-    <motion.div
-      key={delay + color}
-      className={`absolute rounded-full border ${color}`}
-      style={{ width: size, height: size, opacity }}
-      initial={{ scale: 0.9, opacity: 0 }}
-      animate={{ scale: 1, opacity }}
-      transition={{ delay, duration: 1.2, ease: "easeOut" }}
-    />
-  );
+  const { scrollY } = useScroll();
+  const yVisual = useTransform(scrollY, [0, 300], [0, 18]);
+  const [useFallback, setUseFallback] = useState(false);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+    const onError = () => setUseFallback(true);
+    v.addEventListener("error", onError);
+    return () => v.removeEventListener("error", onError);
+  }, []);
 
   return (
-    <div className="relative h-[60vh] w-full sm:h-[70vh]">
-      <div className="absolute inset-0">
-        {/* Dialogue rings */}
-        <div className="absolute right-6 top-8">
-          {ring(0.0, "220px", "border-zinc-300")}
-          {ring(0.2, "280px", "border-zinc-300/70", 0.6)}
-          {ring(0.4, "340px", "border-zinc-300/50", 0.5)}
-        </div>
-
-        {/* Sound waves */}
-        <motion.div
-          className="absolute right-0 bottom-12 h-28 w-64"
-          initial={{ x: 20, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        >
-          <div className="flex h-full items-center gap-2">
-            {[10, 18, 26, 18, 10].map((h, i) => (
-              <motion.div
-                key={i}
-                className="w-6 rounded bg-zinc-300"
-                initial={{ height: h }}
-                animate={{ height: h + 12 }}
-                transition={{ delay: 0.3 + i * 0.05, duration: 0.8 }}
-                style={{ opacity: 0.7 }}
-              />
-            ))}
-          </div>
+    <div className="relative h-[560px]">
+      {!useFallback ? (
+        <motion.div style={{ y: yVisual, filter: "drop-shadow(0 40px 80px rgba(0,0,0,0.18))" }} className="absolute right-0 top-1/2 -translate-y-1/2">
+          <video ref={videoRef} autoPlay muted loop playsInline preload="auto" className="rounded-2xl" style={{ width: "clamp(320px, 42vw, 720px)", height: "auto" }}>
+            <source src="/hero/hero.webm" type="video/webm" />
+            <source src="/hero/hero.mp4" type="video/mp4" />
+          </video>
         </motion.div>
-
-        {/* Layered speech bubbles */}
-        <motion.div
-          className="absolute right-32 top-24"
-          initial={{ y: 10, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        >
-          <div className="flex flex-col gap-3">
-            <div className="rounded-2xl bg-white/80 backdrop-blur-md px-4 py-2 text-sm text-zinc-800 shadow border border-zinc-200">
-              こんにちは！
-            </div>
-            <div className="rounded-2xl bg-white/80 backdrop-blur-md px-4 py-2 text-sm text-zinc-800 shadow border border-zinc-200">
-              元気？
-            </div>
-            <div className="rounded-2xl bg-white/90 backdrop-blur-md px-4 py-2 text-sm text-zinc-800 shadow border border-zinc-200">
-              今日、飲みに行かない？
+      ) : (
+        <motion.div style={{ y: yVisual, filter: "drop-shadow(0 40px 80px rgba(0,0,0,0.18))" }} className="absolute right-0 top-1/2 -translate-y-1/2">
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="relative">
+              <div className="absolute -left-24 -top-10 h-64 w-64 rounded-full" style={{ background: "#ffd9c7", opacity: 0.65 }} />
+              <div className="absolute -left-10 -top-6 h-80 w-80 rounded-full" style={{ background: "#ffe7d8", opacity: 0.75 }} />
+              <div className="absolute -left-2  top-2  h-96 w-96 rounded-full" style={{ background: "#fff2ea", opacity: 0.85 }} />
+              {[0, 1, 2, 3, 4, 5].map((i) => (
+                <div
+                  key={i}
+                  className="absolute left-1/2"
+                  style={{
+                    top: `${80 + i * 55}px`,
+                    transform: "translateX(-50%)",
+                    width: `${360 - i * 28}px`,
+                    height: `${360 - i * 28}px`,
+                    borderRadius: "9999px",
+                    background: "linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.6) 100%)",
+                    boxShadow: "0 35px 65px rgba(0,0,0,0.22), 0 6px 18px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.85)",
+                    border: "1.25px solid rgba(255,255,255,0.7)",
+                    opacity: 0.98,
+                  }}
+                />
+              ))}
             </div>
           </div>
         </motion.div>
-      </div>
+      )}
+
+      <div aria-hidden="true" className="absolute inset-0" style={{ background: "radial-gradient(1200px 560px at 65% 50%, rgba(255,255,255,0.45), rgba(255,255,255,0) 60%)", maskImage: "radial-gradient(560px 560px at 65% 50%, rgba(0,0,0,1), rgba(0,0,0,0.0) 70%)" }} />
     </div>
   );
 }

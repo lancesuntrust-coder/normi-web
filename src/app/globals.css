@@ -1,13 +1,12 @@
 @import "tailwindcss";
-@import "../src/styles/tokens.css";
-@import "../src/styles/utilities.css";
+@import "../styles/tokens.css";
+@import "../styles/utilities.css";
 
-/* Design tokens: warm coral → peach → sand; glass surfaces */
 :root {
   --bg: #ffffff;
   --text: #0b0b0b;
-  --muted: #6b7280; /* zinc-500ish */
-  --accent: #ef6f57; /* warm coral */
+  --muted: #6b7280;
+  --accent: #ef6f57;
   --peach: #ffffff;
   --sand: #ffffff;
   --glass: rgba(255, 255, 255, 0.18);
@@ -17,14 +16,11 @@
 
 html, body { height: 100%; }
 
-/* Flat backgrounds only: white by default */
 body {
   background: var(--bg);
   color: var(--text);
 }
 
-/* Utilities: glass cards, nav pill, buttons (plain CSS to avoid @apply issues) */
-/* Disable glass surfaces for now */
 .glass-card {
   background: transparent;
   border: 0;
@@ -43,7 +39,7 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem 1.25rem; /* px-5 py-2 */
+  padding: 0.5rem 1.25rem;
   border-radius: 9999px;
   color: #fff;
   font-weight: 600;
@@ -61,12 +57,5 @@ body {
   border: 1px solid var(--glass-border);
 }
 
-/* Base tweaks (plain CSS) */
-h1 {
-  letter-spacing: -0.02em; /* tracking-tight */
-}
-p {
-  line-height: 1.625; /* leading-relaxed */
-}
-/* Remove conflicting Tailwind v4 demo theme and duplicate import.
-   Keep warm gradient + glass tokens defined above. */
+h1 { letter-spacing: -0.02em; }
+p { line-height: 1.625; }
