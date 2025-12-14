@@ -41,3 +41,12 @@ Structure highlights
 Notes
 - Clean, readable code with comments where helpful
 - No copying from existing projects—greenfield implementation focused on experience
+
+Design tokens
+ - `--bg`, `--text`, `--muted`, `--accent`, `--peach`, `--sand`, `--glass`, `--glass-border`, `--nav-glass`
+ - Utility classes (plain CSS): `.glass-card`, `.nav-pill`, `.btn-primary`, `.btn-secondary`
+ - Warm gradient is applied to `body` in `app/globals.css`.
+
+Troubleshooting
+ - If Tailwind `@apply` causes build errors, utilities are already implemented in plain CSS.
+ - If you see a Turbopack root warning, it’s configured in `next.config.ts`. Remove extra parent lockfiles if not needed.
