@@ -1,6 +1,7 @@
 "use client";
 import { Home } from "lucide-react";
 import { useMemo, useState } from "react";
+
 import { cn } from "@/lib/cn";
 
 type NavKey = "home" | "scenes" | "classes" | "community" | "teachers";
@@ -49,7 +50,7 @@ export function BottomNavPill({ activeKey = "home" }: { activeKey?: NavKey }) {
                 aria-hidden="true"
                 className="absolute inset-0 rounded-[18px]"
                 style={{
-                  background: "#ffffff",
+                  background: "var(--on-brand)",
                   opacity: isActive ? 0.16 : isHover ? 0.12 : 0,
                   transition: "opacity 180ms ease, transform 200ms ease 60ms",
                   transform: isActive || isHover ? "scale(1)" : "scale(0.98)",

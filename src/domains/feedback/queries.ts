@@ -1,3 +1,3 @@
-export async function getFeedbackForUser(userId: string) {
+export async function getFeedbackForUser() {
   return [] as const;
 }

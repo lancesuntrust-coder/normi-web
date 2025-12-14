@@ -19,14 +19,14 @@ export function HeroVisual() {
   return (
     <div className="relative h-[560px]">
       {!useFallback ? (
-        <motion.div style={{ y: yVisual, filter: "drop-shadow(0 40px 80px rgba(0,0,0,0.18))" }} className="absolute right-0 top-1/2 -translate-y-1/2">
+        <motion.div style={{ y: yVisual, filter: "var(--shadow-visual)" }} className="absolute right-0 top-1/2 -translate-y-1/2">
           <video ref={videoRef} autoPlay muted loop playsInline preload="auto" className="rounded-2xl" style={{ width: "clamp(320px, 42vw, 720px)", height: "auto" }}>
             <source src="/hero/hero.webm" type="video/webm" />
             <source src="/hero/hero.mp4" type="video/mp4" />
           </video>
         </motion.div>
       ) : (
-        <motion.div style={{ y: yVisual, filter: "drop-shadow(0 40px 80px rgba(0,0,0,0.18))" }} className="absolute right-0 top-1/2 -translate-y-1/2">
+        <motion.div style={{ y: yVisual, filter: "var(--shadow-visual)" }} className="absolute right-0 top-1/2 -translate-y-1/2">
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="relative">
               <div className="absolute -left-24 -top-10 h-64 w-64 rounded-full" style={{ background: "var(--peach-100)", opacity: 0.65 }} />
@@ -42,9 +42,9 @@ export function HeroVisual() {
                     width: `${360 - i * 28}px`,
                     height: `${360 - i * 28}px`,
                     borderRadius: "9999px",
-                    background: "linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.6) 100%)",
-                    boxShadow: "0 35px 65px rgba(0,0,0,0.22), 0 6px 18px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.85)",
-                    border: "1.25px solid rgba(255,255,255,0.7)",
+                    background: "linear-gradient(180deg, var(--white-95) 0%, var(--white-60) 100%)",
+                    boxShadow: "var(--shadow-medium), var(--shadow-tiny), var(--shadow-inset-light)",
+                    border: "1.25px solid var(--white-70)",
                     opacity: 0.98,
                   }}
                 />
@@ -54,7 +54,7 @@ export function HeroVisual() {
         </motion.div>
       )}
 
-      <div aria-hidden="true" className="absolute inset-0" style={{ background: "radial-gradient(1200px 560px at 65% 50%, var(--hero-ambient-start), var(--hero-ambient-end) 60%)", maskImage: "radial-gradient(560px 560px at 65% 50%, rgba(0,0,0,1), rgba(0,0,0,0.0) 70%)" }} />
+      <div aria-hidden="true" className="absolute inset-0" style={{ background: "radial-gradient(1200px 560px at 65% 50%, var(--hero-ambient-start), var(--hero-ambient-end) 60%)", maskImage: "radial-gradient(560px 560px at 65% 50%, var(--black-100), var(--black-0) 70%)" }} />
     </div>
   );
 }

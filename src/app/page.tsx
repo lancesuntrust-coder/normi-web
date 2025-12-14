@@ -1,13 +1,14 @@
 "use client";
-import { useEffect } from "react";
-import Lenis from "lenis";
 import { motion, useScroll, useTransform } from "framer-motion";
+import Lenis from "lenis";
 import { MessageCircle } from "lucide-react";
-import { TopControls } from "../components/layout/TopControls";
-import { BottomNavPill } from "../components/ui/BottomNavPill";
-import { Hero } from "../components/sections/Hero";
-import { ScenePreview } from "../components/sections/ScenePreview";
-import { Footer } from "../components/layout/Footer";
+import { useEffect } from "react";
+
+import { Footer } from "@/components/layout/Footer";
+import { TopControls } from "@/components/layout/TopControls";
+import { Hero } from "@/components/sections/Hero";
+import { ScenePreview } from "@/components/sections/ScenePreview";
+import { BottomNavPill } from "@/components/ui/BottomNavPill";
 
 export default function Home() {
   // Smooth scrolling via Lenis (micro motion philosophy)

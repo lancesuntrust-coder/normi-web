@@ -1,7 +1,7 @@
 "use client";
-import Link from "next/link";
-import { Globe } from "lucide-react";
 import { motion } from "framer-motion";
+import { Globe } from "lucide-react";
+import Link from "next/link";
 
 export function TopControls() {
   return (
@@ -19,17 +19,17 @@ export function TopControls() {
       </motion.div>
 
       <motion.nav
-        className="fixed top-6 right-6 flex items-center gap-4 rounded-full px-4 py-2 border text-sm"
-        style={{ background: "var(--glass-overlay)", backdropFilter: "blur(32px)", borderColor: "var(--glass-border)", zIndex: "var(--z-nav)" }}
+        className="fixed top-6 right-6 flex items-center gap-4 rounded-full px-4 py-2 text-sm"
+        style={{ background: "var(--glass-overlay)", backdropFilter: "blur(32px)", zIndex: "var(--z-nav)" }}
         initial={{ opacity: 0, y: -8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
-        <button className="inline-flex items-center gap-2" style={{ color: "rgba(255,255,255,0.85)" }}>
+        <button className="inline-flex items-center gap-2" style={{ color: "var(--on-brand-85)" }}>
           <Globe size={16} /> EN
         </button>
-        <span className="h-4 w-px" style={{ background: "rgba(255,255,255,0.25)" }} />
-        <Link href="#" className="rounded-full px-3 py-1 border" style={{ background: "var(--glass-overlay)", backdropFilter: "blur(32px)", borderColor: "var(--glass-border)", color: "rgba(255,255,255,0.85)" }}>
+        <span className="h-4 w-px" style={{ background: "var(--glass-separator)" }} />
+        <Link href="#" className="rounded-full px-3 py-1" style={{ background: "var(--glass-overlay)", backdropFilter: "blur(32px)", color: "var(--on-brand-85)" }}>
           Login
         </Link>
         <Link href="#" className="rounded-full px-4 py-2 font-semibold" style={{ background: "var(--on-brand)", color: "var(--brand-coral-strong)" }}>

@@ -3,14 +3,14 @@
 @import "../styles/utilities.css";
 
 :root {
-  --bg: #ffffff;
-  --text: #0b0b0b;
-  --muted: #6b7280;
-  --accent: #ef6f57;
-  --peach: #ffffff;
-  --sand: #ffffff;
-  --glass: rgba(255, 255, 255, 0.18);
-  --glass-border: rgba(255, 255, 255, 0.28);
+  --bg: var(--on-brand);
+  --text: var(--text-strong);
+  --muted: var(--text-muted);
+  --accent: var(--brand-coral);
+  --peach: var(--peach-300);
+  --sand: var(--on-brand);
+  --glass: var(--glass-overlay);
+  --glass-border: var(--glass-border);
   --nav-glass: rgba(0, 0, 0, 0.28);
 }
 
@@ -41,9 +41,9 @@ body {
   justify-content: center;
   padding: 0.5rem 1.25rem;
   border-radius: 9999px;
-  color: #fff;
+  color: var(--on-brand);
   font-weight: 600;
-  background: var(--accent);
+  background: var(--brand-coral);
 }
 
 .btn-secondary {
@@ -53,7 +53,7 @@ body {
   padding: 0.5rem 1.25rem;
   border-radius: 9999px;
   font-weight: 600;
-  background: rgba(255, 255, 255, 0.6);
+  background: var(--white-60);
   border: 1px solid var(--glass-border);
 }
 

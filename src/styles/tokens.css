@@ -17,6 +17,8 @@
   --glass-border: rgba(255, 255, 255, 0.35);
   /* Aliases used in app */
   --glass: var(--glass-overlay);
+  --glass-separator: rgba(255, 255, 255, 0.25);
+  --on-brand-85: rgba(255, 255, 255, 0.85);
 
   /* Radii */
   --radius-pill: 9999px;
@@ -24,6 +26,10 @@
 
   /* Shadows (kept for future; default none) */
   --shadow-soft: 0 16px 40px rgba(0,0,0,0.18);
+  --shadow-medium: 0 35px 65px rgba(0,0,0,0.22);
+  --shadow-tiny: 0 6px 18px rgba(0,0,0,0.18);
+  --shadow-inset-light: inset 0 1px 0 rgba(255,255,255,0.85);
+  --shadow-visual: drop-shadow(0 40px 80px rgba(0,0,0,0.18));
 
   /* Hero visual peach glows */
   --peach-100: #ffd9c7;
@@ -32,6 +38,14 @@
   /* Ambient radial glow */
   --hero-ambient-start: rgba(255,255,255,0.45);
   --hero-ambient-end: rgba(255,255,255,0);
+
+  /* Whites for gradients/borders */
+  --white-95: rgba(255,255,255,0.95);
+  --white-85: rgba(255,255,255,0.85);
+  --white-70: rgba(255,255,255,0.70);
+  --white-60: rgba(255,255,255,0.60);
+  --black-100: rgba(0,0,0,1);
+  --black-0: rgba(0,0,0,0);
 
   /* Z-index tokens */
   --z-video: 0;

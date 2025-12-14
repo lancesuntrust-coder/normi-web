@@ -1,7 +1,8 @@
 "use client";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { MOTION } from "@/lib/constants";
+
 import { Button } from "@/components/ui/Button";
+import { MOTION } from "@/lib/constants";
 
 export function Hero() {
   const { scrollY } = useScroll();

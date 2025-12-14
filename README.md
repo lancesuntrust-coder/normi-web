@@ -1,3 +1,6 @@
+## Contributing & AI Instructions
+- See `CONTRIBUTING.md` for human guidelines.
+- See `copilot-instructions.md` for AI assistant rules.
 Normi Web — motion-first landing page
 
 Overview
