@@ -20,13 +20,14 @@ export function TopControls() {
           </Link>
 
           <nav className={styles.bar}>
-            <button className={`${styles.pill} ${styles.secondary}`}>
+            <button className={`${styles.btn} ${styles.muted}`}>
               <Globe size={16} /> EN
             </button>
-            <Link href="#" className={`${styles.pill} ${styles.secondary}`}>
+            <span className={styles.separator} />
+            <Link href="#" className={styles.login}>
               Login
             </Link>
-            <Link href="#" className={`${styles.pill} ${styles.primary}`}>
+            <Link href="#" className={styles.signup}>
               Sign up
             </Link>
           </nav>
