@@ -1,4 +1,255 @@
 # AI Coding Instructions — Normi Web
+# AI Coding Instructions — Normi Web
+
+These rules are the operating spec for AI assistants contributing to this repo.
+Always follow them unless explicitly overridden by the user.
+
+Failure to follow these rules means the output is incorrect.
+
+
+## File Creation Rules (Strict)
+
+  `grep -R "export function <ComponentName>" src/components`
+
+
+
+## Imports & Structure
+
+  - `src/components/ui`
+  - `src/components/sections`
+  - `src/components/layout`
+  - `src/lib`
+
+
+## Component Placement
+
+  - Stateless, reusable UI primitives
+  - Token-driven styling only
+  - Page-level compositions
+  - Compose `ui/` primitives
+  - Handle motion and layout
+  - Persistent UI (navigation, footer, controls)
+  - Use z-index tokens for stacking
+
+Do NOT place components directly under `src/components`.
+
+
+## Styling & Design Tokens
+
+
+  - `src/styles/tokens.css`
+  - `src/styles/utilities.css`
+
+
+### Numeric Values Clarification
+
+
+
+## Style Architecture Standards (Strict Ownership + CSS Modules)
+
+### No Tailwind Utilities in TSX (Mandatory)
+
+  - semantic, component-owned class names (e.g., `heroHeadline`, `topControlsNav`)
+  - approved global layout primitives: `content-container` ONLY
+
+Disallowed in TSX (non-exhaustive):
+`flex`, `grid`, `items-*`, `justify-*`, `gap-*`, `px-*`, `py-*`, `pt-*`, `pb-*`, `pl-*`, `pr-*`,
+`m-*`, `w-*`, `h-*`, `min-*`, `max-*`, `text-*`, `bg-*`, `rounded-*`,
+`absolute`, `relative`, `fixed`, `inset-*`, `top-*`, `left-*`, `right-*`, `bottom-*`,
+`overflow-*`, `backdrop-*`.
+
+Allowed inline styles:
+
+
+### Ownership Rules
+
+  - import of `src/styles/tokens.css`
+  - minimal reset
+  - base typography
+  - app-level color defaults
+  - accessibility defaults
+
+  ```ts
+  import styles from "./Component.module.css";
+  ```
+
+
+### Three-Layer Model (Non-Negotiable)
+
+1. **Tokens**
+
+   * Centralized variables in `src/styles/tokens.css`
+   * Single `:root`
+   * Do not change values unless explicitly requested
+
+2. **Global Base**
+
+   * Lives in `src/app/globals.css`
+   * Minimal reset
+   * Typography defaults
+   * Color defaults
+   * Focus-visible styles
+  * NO component or layout styling (no section spacing, no hero/layout CSS)
+
+3. **Component Styles**
+
+   * Colocated CSS Modules (`*.module.css`)
+   * Owned by each component under `src/components/**`
+
+
+### Section Rhythm (Deprecated)
+
+* Do NOT use `section-*` global utilities going forward.
+* Page/section spacing should be implemented via each page’s CSS Module wrapper.
+* Continue to use the global `content-container` for horizontal gutters; do not duplicate this logic.
+
+---
+### Hero Patterns (Current Implementation)
+
+* Colocated CSS Module (`Hero.module.css`) with a root-scoped approach.
+* Typical classes: `.root`, `.container`, `.headline`, `.title`, `.cta`, `.copy`, `.hint`.
+* Vertical alignment uses hero spacing tokens; absolute elements bind offsets with:
+  `calc(var(--hero-bottom-*) + var(--hero-space-bottom))`.
+* Do not introduce hero CSS into globals; keep it owned by the component.
+
+---
+
+
+* No static visual inline styles in TSX.
+* Inline styles allowed only for animation-driven values.
+* Scope selectors with a root class per component.
+* Avoid generic selectors like `.button` unless strictly prefixed and owned.
+
+### CSS Modules Conventions
+
+* Group structure first (root/rows/containers), then elements (title/copy/cta), then states (active/hover) as separate classes.
+* Prefer state classes over inline styles for hover/active; motion values may remain inline via Framer Motion.
+
+### Enforcement & Tooling
+
+* Pre-commit (`.husky/pre-commit`) runs:
+  - `lint-staged` (eslint with `--max-warnings=0` on staged TS/TSX)
+  - Tailwind-in-TSX guard (grep) — commits fail if utilities are reintroduced
+  - Barrels and misplaced components guard
+* ESLint enforces import order and alias resolution; fix warnings before commit.
+
+---
+
+### Do / Don’t
+
+**Do**
+* Import component CSS inside the component file.
+* Keep `globals.css` limited to base responsibilities.
+* Use tokens for color, spacing, radii, and z-index.
+
+**Don’t**
+
+* Import component CSS into `globals.css`.
+* Use Tailwind utilities anywhere.
+* Hardcode colors or spacing inside TSX.
+* Duplicate layout primitives.
+
+---
+
+## Global Base Styles
+
+* When Tailwind is removed, a minimal global reset is mandatory.
+* `src/app/globals.css` owns ONLY:
+
+  * token imports
+  * box-sizing reset
+  * body margin reset
+  * media normalization
+  * base typography
+  * neutral link styles
+  * tokenized focus-visible styles
+
+### Fonts
+
+* Fonts are defined once via `next/font` in `src/app/layout.tsx`.
+* Expose fonts as CSS variables (`--font-sans`, `--font-mono`) on `<html>`.
+* `body` uses `font-family: var(--font-sans, system-ui, …)`.
+* Components inherit fonts by default.
+
+---
+
+### Accessibility: Focus Ring (Mandatory)
+
+* Use a global tokenized focus ring.
+
+* Tokens in `tokens.css`:
+
+  * `--focus-ring`
+  * `--focus-ring-offset`
+
+* Global rule in `globals.css`:
+  ```css
+  :focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: var(--focus-ring-offset);
+  }
+  ```
+
+* Never remove focus outlines.
+
+* Component overrides must remain visible and meet AA+ contrast.
+
+---
+
+
+* `content-container` is the single global primitive for readable width and gutters.
+* Defined in `src/styles/utilities.css`.
+* Applied once in `layout.tsx` around `{children}`.
+
+Usage rules:
+
+* Normal sections are contained by default.
+* Do NOT duplicate container logic inside components.
+
+---
+
+## Motion & Behavior
+
+* Use Framer Motion for animations.
+* Motion ranges and outputs live in `src/lib/constants.ts`.
+* Do NOT inline motion magic numbers.
+* Do NOT store motion values in CSS tokens.
+---
+
+## Code Quality
+
+* Respect existing TypeScript types.
+* Keep props explicit and typed.
+* No duplicate components.
+* No parallel roots.
+* Do not restyle existing components unless explicitly instructed.
+
+---
+
+## Required Validation
+
+* All changes must pass:
+
+  * `npm run lint`
+* If a change would break the build, do NOT propose it.
+
+---
+
+## Compliance Note
+
+---
+
+### Final call
+
+This version is **clean**, **non-contradictory**, and **AI-proof**.
+
+Once you upload this into the ChatGPT project:
+- I will treat it as binding
+- I will not suggest patterns that violate it
+- I will call out violations immediately
+
+You did the hard thinking already. This just locks it so nothing drifts.
+# AI Coding Instructions — Normi Web
 
 These rules are the operating spec for AI assistants contributing to this repo.
 Always follow them unless explicitly overridden by the user.
