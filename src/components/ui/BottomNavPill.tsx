@@ -38,16 +38,16 @@ export function BottomNavPill({ activeKey = "home" }: { activeKey?: NavKey }) {
               type="button"
               onMouseEnter={() => setHoverKey(item.key)}
               onMouseLeave={() => setHoverKey(null)}
-              className={cn(styles.item)}
-              style={{ opacity: baseOpacity }}
+              className={cn(
+                styles.item,
+                item.icon && styles.iconOnly,
+                isActive && styles.active,
+                isHover && styles.hover
+              )}
             >
               <span
                 aria-hidden="true"
                 className={styles.highlight}
-                style={{
-                  opacity: isActive ? 0.16 : isHover ? 0.12 : 0,
-                  transform: isActive || isHover ? "scale(1)" : "scale(0.98)",
-                }}
               />
               <span className={styles.itemContent}>
                 {item.icon ? (

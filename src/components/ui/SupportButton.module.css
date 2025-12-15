@@ -1,2 +1,15 @@
 .root { display: inline-block; }
-.content { border-radius: var(--radius-pill); padding: 0.5rem 1rem; backdrop-filter: blur(12px); display: inline-flex; align-items: center; gap: 0.5rem; background: var(--glass); color: var(--on-brand-85); }
+.content {
+	border-radius: var(--radius-pill);
+	padding: 10px 14px;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	background: rgba(0,0,0,0.40);
+	color: var(--white-92);
+	border: 1px solid var(--white-22);
+	backdrop-filter: blur(16px);
+	box-shadow: var(--shadow-cta);
+	transition: background 160ms ease;
+}
+.content:hover { background: rgba(0,0,0,0.48); }

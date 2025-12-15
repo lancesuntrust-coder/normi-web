@@ -36,8 +36,22 @@
 .copy { position: absolute; right: 0; bottom: calc(var(--hero-bottom-copy) + var(--hero-space-bottom)); max-width: 20rem; }
 .copyText { color: var(--white-78); }
 
-.hint { position: absolute; left: 0; display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; padding: 0.25rem 0.75rem; border-radius: 9999px; backdrop-filter: blur(12px); bottom: calc(var(--hero-bottom-hint) + var(--hero-space-bottom)); background: var(--glass); color: var(--on-brand-85); }
-.hintDot { width: 6px; height: 6px; border-radius: 9999px; background: var(--on-brand); display: inline-block; }
+.hint {
+  position: absolute;
+  left: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  padding: 8px 12px;
+  border-radius: 9999px;
+  backdrop-filter: blur(16px);
+  bottom: calc(var(--hero-bottom-hint) + var(--hero-space-bottom));
+  background: rgba(255,255,255,0.14);
+  border: 1px solid var(--white-22);
+  color: var(--white-85);
+}
+.hintDot { width: 6px; height: 6px; border-radius: 9999px; background: var(--white-92); display: inline-block; }
 
 .video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; z-index: var(--z-video); }
 .content { position: absolute; inset: 0; z-index: var(--z-content); }
