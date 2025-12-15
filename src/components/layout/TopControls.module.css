@@ -38,55 +38,41 @@
 .bar {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  border-radius: var(--radius-pill);
-  padding: 12px;
-  font-size: 0.875rem;
-  background: var(--brand-coral);
-  border: 1px solid var(--glass-border-18);
-  color: var(--white-92);
+  gap: 0.5rem;
 }
 
-.btn {
+/* Shared pill sizing */
+.pill {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  color: #ffffff;
-}
-
-.muted {
-  color: #ffffff;
-}
-
-.separator {
-  display: inline-block;
-  width: 1px;
-  height: 1rem;
-  background: var(--glass-separator);
-}
-
-.login {
+  height: 44px;
   border-radius: var(--radius-pill);
-  padding: 0.5rem 0.9rem;
-  background: rgba(255,255,255,0.06);
-  color: #ffffff;
-  border: 1px solid rgba(255,255,255,0.25);
+  padding: 0 18px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
 }
 
-.login:hover {
+/* Secondary pills: EN + Login */
+.secondary {
   background: rgba(255,255,255,0.10);
-  border-color: rgba(255,255,255,0.30);
+  border: 1px solid rgba(255,255,255,0.22);
+  color: #ffffff;
+  backdrop-filter: blur(16px);
+}
+.secondary:hover {
+  background: rgba(255,255,255,0.14);
+  border-color: rgba(255,255,255,0.28);
 }
 
-.signup {
-  border-radius: var(--radius-pill);
-  padding: 0.5rem 0.9rem;
-  font-weight: 700;
+/* Primary pill: Sign up */
+.primary {
   background: var(--on-brand);
   color: var(--brand-coral);
   border: none;
+  font-weight: 700;
 }
-
-.signup:hover {
-  background: rgba(255,255,255,0.95);
+.primary:hover {
+  background: rgba(255,255,255,0.96);
 }
