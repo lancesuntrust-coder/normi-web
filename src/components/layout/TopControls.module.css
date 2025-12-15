@@ -17,11 +17,23 @@
   justify-content: space-between;
 }
 @media (min-width: 640px) {
-  .row { padding-left: var(--container-pad-sm); padding-right: var(--container-pad-sm); }
+  .row {
+    padding-left: var(--container-pad-sm);
+    padding-right: var(--container-pad-sm);
+  }
 }
 
-.logo { display: inline-flex; align-items: center; }
-.brand { color: var(--white-95); font-size: 48px; font-weight: 700; letter-spacing: 0.2px; }
+.logo {
+  display: inline-flex;
+  align-items: center;
+}
+
+.brand {
+  color: var(--white-95);
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
 
 .bar {
   display: flex;
@@ -35,10 +47,30 @@
   color: var(--white-92);
   backdrop-filter: blur(16px);
 }
-.btn { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--white-92); }
-.muted { color: var(--white-92); }
-.separator { display: inline-block; width: 1px; height: 1rem; background: var(--white-22); }
-.login { border-radius: 9999px; padding: 0.25rem 0.75rem; background: transparent; color: var(--white-92); }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--white-92);
+}
+
+.muted {
+  color: var(--white-92);
+}
+
+.separator {
+  display: inline-block;
+  width: 1px;
+  height: 1rem;
+  background: var(--white-22);
+}
+
+.login {
+  border-radius: 9999px;
+  padding: 0.25rem 0.75rem;
+  background: transparent;
+  color: var(--white-92);
+}
 .signup {
   border-radius: 9999px;
   padding: 0.5rem 0.9rem;

@@ -12,7 +12,9 @@
   border: 1px solid var(--white-55);
   box-shadow: var(--shadow-cta);
 }
-.primary:hover { background: var(--white-98); }
+.primary:hover {
+  background: var(--white-98);
+}
 
 /* Secondary: soft white pill (not heavy glass) */
 .glass {
@@ -21,5 +23,7 @@
   border: 1px solid var(--white-28);
   backdrop-filter: blur(8px);
 }
-.glass:hover { background: rgba(255,255,255,0.26); }
+.glass:hover {
+  background: rgba(255,255,255,0.26);
+}
 .ghost { color: var(--on-brand); background: transparent; }

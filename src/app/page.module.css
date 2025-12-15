@@ -1,6 +1,8 @@
 /* Home page styles (CSS Module) */
 
-.root { min-height: 100vh; }
+.root {
+  min-height: 100vh;
+}
 
 /* Floating support button container */
 .support {
@@ -24,8 +26,14 @@
 }
 
 /* Section spacing */
-.sectionMd { padding-top: var(--space-section-md); padding-bottom: var(--space-section-md); }
-.sectionMdB { padding-bottom: var(--space-section-md); }
+.sectionMd {
+  padding-top: var(--space-section-md);
+  padding-bottom: var(--space-section-md);
+}
+
+.sectionMdB {
+  padding-bottom: var(--space-section-md);
+}
 
 /* How it works */
 .title {
@@ -51,6 +59,22 @@
 .cardMuted { color: var(--muted); font-size: 0.875rem; margin-top: 0.5rem; }
 
 /* Testimonials */
-.grid2 { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
-@media (min-width: 640px) { .grid2 { grid-template-columns: repeat(2, 1fr); } }
-.quote { color: var(--text); border-radius: 1rem; padding: 1.5rem; border: 1px solid var(--glass-border); background-image: linear-gradient(var(--white-06), var(--white-06)); }
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .grid2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.quote {
+  color: var(--text);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  border: 1px solid var(--glass-border);
+  background-image: linear-gradient(var(--white-06), var(--white-06));
+}
