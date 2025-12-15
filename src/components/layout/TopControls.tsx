@@ -2,31 +2,32 @@
 import { motion } from "framer-motion";
 import { Globe } from "lucide-react";
 import Link from "next/link";
-import "@/styles/layout/top-controls.css";
+
+import styles from "./TopControls.module.css";
 
 export function TopControls() {
   return (
     <>
       <motion.div
-        className="top-controls"
+        className={styles.root}
         initial={{ opacity: 0, y: -8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
-        <div className="content-container top-controls-row">
-          <Link href="/" className="top-controls-logo">
-            <span className="top-controls-brand">Normi</span>
+        <div className={styles.row}>
+          <Link href="/" className={styles.logo}>
+            <span className={styles.brand}>Normi</span>
           </Link>
 
-          <nav className="top-controls-bar">
-            <button className="top-controls-btn top-controls-muted">
+          <nav className={styles.bar}>
+            <button className={`${styles.btn} ${styles.muted}`}>
               <Globe size={16} /> EN
             </button>
-            <span className="top-controls-separator" />
-            <Link href="#" className="top-controls-login">
+            <span className={styles.separator} />
+            <Link href="#" className={styles.login}>
               Login
             </Link>
-            <Link href="#" className="top-controls-signup">
+            <Link href="#" className={styles.signup}>
               Sign up
             </Link>
           </nav>

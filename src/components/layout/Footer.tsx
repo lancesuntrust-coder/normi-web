@@ -1,14 +1,14 @@
-import "@/styles/layout/footer.css";
+import styles from "./Footer.module.css";
 
 export function Footer() {
   return (
-    <footer className="section-footer footer">
-      <div className="footer-inner footer-muted">
+    <footer className={styles.root}>
+      <div className={`${styles.inner} ${styles.muted}`}>
         <p>© {new Date().getFullYear()} Normi. All rights reserved.</p>
-        <div className="footer-links">
-          <a href="#" className="footer-link footer-muted">Terms</a>
-          <a href="#" className="footer-link footer-muted">Privacy</a>
-          <a href="#" className="footer-link footer-muted">Contact</a>
+        <div className={styles.links}>
+          <a href="#" className={`${styles.link} ${styles.muted}`}>Terms</a>
+          <a href="#" className={`${styles.link} ${styles.muted}`}>Privacy</a>
+          <a href="#" className={`${styles.link} ${styles.muted}`}>Contact</a>
         </div>
       </div>
     </footer>

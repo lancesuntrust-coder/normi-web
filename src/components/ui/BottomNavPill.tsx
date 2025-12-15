@@ -3,7 +3,8 @@ import { Home } from "lucide-react";
 import { useMemo, useState } from "react";
 
 import { cn } from "@/lib/cn";
-import "@/styles/ui/bottom-nav-pill.css";
+
+import styles from "./BottomNavPill.module.css";
 
 type NavKey = "home" | "scenes" | "classes" | "community" | "teachers";
 
@@ -21,11 +22,11 @@ export function BottomNavPill({ activeKey = "home" }: { activeKey?: NavKey }) {
     []
   );
 
-  const pillClasses = cn("bottom-nav");
+  const pillClasses = cn(styles.root);
 
   return (
     <nav className={pillClasses}>
-      <div className="bottom-nav-inner">
+      <div className={styles.inner}>
         {items.map((item) => {
           const isActive = activeKey === item.key;
           const isHover = hoverKey === item.key;
@@ -37,24 +38,24 @@ export function BottomNavPill({ activeKey = "home" }: { activeKey?: NavKey }) {
               type="button"
               onMouseEnter={() => setHoverKey(item.key)}
               onMouseLeave={() => setHoverKey(null)}
-              className={cn("bottom-nav-item")}
+              className={cn(styles.item)}
               style={{ opacity: baseOpacity }}
             >
               <span
                 aria-hidden="true"
-                className="bottom-nav-highlight"
+                className={styles.highlight}
                 style={{
                   opacity: isActive ? 0.16 : isHover ? 0.12 : 0,
                   transform: isActive || isHover ? "scale(1)" : "scale(0.98)",
                 }}
               />
-              <span className="bottom-nav-item-content">
+              <span className={styles.itemContent}>
                 {item.icon ? (
-                  <span className="bottom-nav-item-icon">
+                  <span className={styles.itemIcon}>
                     <Home size={20} />
                   </span>
                 ) : (
-                  <span className="bottom-nav-item-label">{item.label}</span>
+                  <span className={styles.itemLabel}>{item.label}</span>
                 )}
               </span>
             </button>

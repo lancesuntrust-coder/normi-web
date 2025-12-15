@@ -1,7 +1,8 @@
 "use client";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import "@/styles/ui/hero-visual.css";
+
+import styles from "./HeroVisual.module.css";
 
 export function HeroVisual() {
   const { scrollY } = useScroll();
@@ -18,20 +19,20 @@ export function HeroVisual() {
   }, []);
 
   return (
-    <div className="hero-visual">
+    <div className={styles.root}>
       {!useFallback ? (
-        <motion.div style={{ y: yVisual }} className="hero-visual-media">
-          <video ref={videoRef} autoPlay muted loop playsInline preload="auto" className="hero-visual-video">
+        <motion.div style={{ y: yVisual }} className={styles.media}>
+          <video ref={videoRef} autoPlay muted loop playsInline preload="auto" className={styles.video}>
             <source src="/hero/hero.webm" type="video/webm" />
             <source src="/hero/hero.mp4" type="video/mp4" />
           </video>
         </motion.div>
       ) : (
-        <div className="hero-visual-fallback" />
+        <div className={styles.fallback} />
       )}
 
       {!useFallback && (
-        <div aria-hidden="true" className="hero-visual-ambient" />
+        <div aria-hidden="true" className={styles.ambient} />
       )}
     </div>
   );

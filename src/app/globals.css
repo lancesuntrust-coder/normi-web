@@ -1,6 +1,4 @@
-@import "tailwindcss";
 @import "../styles/tokens.css";
-@import "../styles/utilities.css";
 
 :root {
   --bg: var(--on-brand);
@@ -21,42 +19,6 @@ body {
   color: var(--text);
 }
 
-
-.glass-card {
-  background: transparent;
-  border: 0;
-  border-radius: 1rem;
-  box-shadow: none;
-}
-
-.nav-pill {
-  background: transparent;
-  border: 0;
-  border-radius: 9999px;
-  box-shadow: none;
-}
-
-.btn-primary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.5rem 1.25rem;
-  border-radius: 9999px;
-  color: var(--on-brand);
-  font-weight: 600;
-  background: var(--brand-coral);
-}
-
-.btn-secondary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.5rem 1.25rem;
-  border-radius: 9999px;
-  font-weight: 600;
-  background: var(--white-60);
-  border: 1px solid var(--glass-border);
-}
 
 h1 { letter-spacing: -0.02em; }
 p { line-height: 1.625; }

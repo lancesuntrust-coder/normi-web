@@ -10,7 +10,8 @@ import { Hero } from "@/components/sections/Hero";
 import { ScenePreview } from "@/components/sections/ScenePreview";
 import { BottomNavPill } from "@/components/ui/BottomNavPill";
 import { SupportButton } from "@/components/ui/SupportButton";
-import "@/styles/sections/home.css";
+
+import styles from "./page.module.css";
 
 export default function Home() {
   // Smooth scrolling via Lenis (micro motion philosophy)
@@ -33,49 +34,49 @@ export default function Home() {
   // no-op: scroll hint is implemented inside Hero
 
   return (
-    <div className="home-root">
+    <div className={styles.root}>
       {/* Floating elements */}
       <TopControls />
       <BottomNavPill />
       {/* Scroll hint now lives inside Hero; removed from page to keep it within hero bounds */}
-      <div className="home-support">
+      <div className={styles.support}>
         <SupportButton />
       </div>
 
       {/* Treat hero as a stage (full-bleed wrapper to escape global gutters) */}
-      <div className="full-bleed">
+      <div className={styles.fullBleed}>
         <Hero />
       </div>
 
       {/* Subsequent sections (standardized gutters from layout wrapper) */}
       <ScenePreview />
 
-      <section className="section-md">
-        <h2 className="home-title">How it works</h2>
-        <div className="home-grid-3">
+      <section className={styles.sectionMd}>
+        <h2 className={styles.title}>How it works</h2>
+        <div className={styles.grid3}>
           {["Speak in class", "Get private feedback", "Repeat in scenes"].map((t, i) => (
             <motion.div
               key={t}
-              className="home-card"
+              className={styles.card}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-10%" }}
               transition={{ delay: 0.06 * i, duration: 0.5 }}
             >
-              <h3 className="home-card-title">{t}</h3>
-              <p className="home-card-muted">Calm, human, and focused on natural speech.</p>
+              <h3 className={styles.cardTitle}>{t}</h3>
+              <p className={styles.cardMuted}>Calm, human, and focused on natural speech.</p>
             </motion.div>
           ))}
         </div>
       </section>
 
-      <section className="section-md-b">
-        <h2 className="home-title">Testimonials</h2>
-        <div className="home-grid-2">
+      <section className={styles.sectionMdB}>
+        <h2 className={styles.title}>Testimonials</h2>
+        <div className={styles.grid2}>
           {["I finally speak without freezing.", "Feels like real life practice."] .map((q, i) => (
             <motion.blockquote
               key={i}
-              className="home-quote"
+              className={styles.quote}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-10%" }}

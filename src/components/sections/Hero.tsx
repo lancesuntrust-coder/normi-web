@@ -1,9 +1,10 @@
 "use client";
 import { motion, useScroll, useTransform } from "framer-motion";
-import "@/styles/sections/hero.css";
 
 import { Button } from "@/components/ui/Button";
 import { MOTION } from "@/lib/constants";
+
+import styles from "./Hero.module.css";
 
 export function Hero() {
   const { scrollY } = useScroll();
@@ -11,9 +12,9 @@ export function Hero() {
   const textOpacity = useTransform(scrollY, MOTION.hero.opacityRange as number[], MOTION.hero.opacityOutput as number[]);
 
   return (
-    <section className="hero">
+    <section className={styles.root}>
       <video
-        className="hero-video"
+        className={styles.video}
         src="/hero/hero.mp4"
         autoPlay
         muted
@@ -22,24 +23,24 @@ export function Hero() {
         poster="/hero/hero.jpg"
       />
 
-      <div className="hero-content">
-        <div className="hero-container">
+      <div className={styles.content}>
+        <div className={styles.container}>
           <motion.div
             style={{ y: yText, opacity: textOpacity }}
-            className="hero-headline"
+            className={styles.headline}
           >
-          <h1 className="hero-title">
+          <h1 className={styles.title}>
             Learn Japanese
             <br />for real life.
           </h1>
-          <div className="hero-cta">
+          <div className={styles.cta}>
             <Button variant="primary">Choose your scene</Button>
             <Button variant="glass">How Normi works</Button>
           </div>
           </motion.div>
 
-          <div className="hero-copy">
-          <p className="hero-copy-text">
+          <div className={styles.copy}>
+          <p className={styles.copyText}>
             Single account for all your learning moments.
             Speak naturally, not like a textbook.
           </p>
@@ -51,11 +52,11 @@ export function Hero() {
             const target = window.innerHeight * 0.9;
             window.scrollTo({ top: target, behavior: "smooth" });
           }}
-          className="hero-hint"
+          className={styles.hint}
         >
           <motion.span
             aria-hidden
-            className="hero-hint-dot"
+            className={styles.hintDot}
             animate={{ y: [0, -6, 0] }}
             transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut" }}
           />

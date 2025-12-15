@@ -1,0 +1,7 @@
+.root { position: fixed; left: 50%; transform: translateX(-50%); bottom: var(--bottom-nav-bottom); height: 49px; z-index: var(--z-nav); border-radius: var(--radius-pill); background: var(--brand-coral); overflow: hidden; display: flex; align-items: center; padding: 6px; }
+.inner { display: flex; align-items: center; gap: 4px; }
+.item { position: relative; display: inline-flex; align-items: center; justify-content: center; color: var(--on-brand); height: 45px; border-radius: var(--radius-pill); padding: 0 18px; }
+.itemContent { position: relative; display: inline-flex; align-items: center; gap: 0.5rem; }
+.itemIcon { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; }
+.itemLabel { font-size: 16px; line-height: 18px; font-weight: 400; letter-spacing: 0.1px; white-space: nowrap; }
+.highlight { position: absolute; inset: 0; border-radius: var(--radius-inner); background: var(--on-brand); transition: opacity 180ms ease, transform 200ms ease 60ms; }

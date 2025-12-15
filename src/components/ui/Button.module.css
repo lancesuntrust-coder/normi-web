@@ -1,0 +1,11 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-pill);
+  padding: 0.5rem 1.25rem;
+  font-weight: 600;
+}
+.primary { color: var(--brand-coral-strong); background: var(--on-brand); }
+.glass { color: var(--on-brand); background: var(--glass-overlay); border: 1px solid var(--glass-border); }
+.ghost { color: var(--on-brand); background: transparent; }
