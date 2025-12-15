@@ -31,7 +31,7 @@ export function BottomNavPill({ activeKey = "home" }: { activeKey?: NavKey }) {
 
   return (
     <nav className={pillClasses} style={{ height: 46, zIndex: "var(--z-nav)" }}>
-      <div className="flex items-center gap-3" style={{ marginLeft: 2 }}>
+      <div className="flex items-center gap-3">
         {items.map((item) => {
           const isActive = activeKey === item.key;
           const isHover = hoverKey === item.key;
