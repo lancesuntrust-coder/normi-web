@@ -2,9 +2,14 @@
 
 :root {
   /* Brand & Color */
-  --brand-coral: #f73a20;
-  --brand-coral-strong: #f73a20;
-  --brand-coral-soft: #f73a20;
+  /* Dual-orange system */
+  --brand-orange: #f73a20; /* marketing, hero, CTAs */
+  --ui-coral: #f84d36;     /* persistent UI surfaces (e.g., bottom nav) */
+
+  /* Backwards-compat aliases (do not invent new shades) */
+  --brand-coral: var(--brand-orange);
+  --brand-coral-strong: var(--brand-orange);
+  --brand-coral-soft: var(--brand-orange);
   --on-brand: #ffffff;
 
   /* Text */
@@ -94,8 +99,8 @@
   --nav-highlight-hover: rgba(255,255,255,0.12);
 
   /* Coral capsule for bottom nav */
-  --coral-pill: #f73a20;
-  --coral-pill-hover: #f73a20;
+  --coral-pill: var(--ui-coral);
+  --coral-pill-hover: var(--ui-coral);
 
   /* Accessibility */
   --focus-ring: rgba(255,255,255,0.85);

@@ -69,7 +69,7 @@
 /* Primary pill: Sign up */
 .primary {
   background: var(--on-brand);
-  color: var(--brand-coral);
+  color: var(--brand-orange);
   border: none;
   font-weight: 700;
 }
