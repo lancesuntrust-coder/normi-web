@@ -4,6 +4,22 @@
   /* vertical spacing handled by .section-footer utility */
 }
 
-.footer-muted {
-  color: var(--muted);
+.footer-muted { color: var(--on-brand-85); }
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.875rem; /* text-sm */
 }
+
+@media (min-width: 640px) {
+  .footer-inner { flex-direction: row; }
+}
+
+.footer-links { display: flex; gap: 1rem; }
+
+.footer-link { text-decoration: none; }
+.footer-link:hover { text-decoration: underline; }

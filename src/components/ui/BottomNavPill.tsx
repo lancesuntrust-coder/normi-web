@@ -25,18 +25,19 @@ export function BottomNavPill({ activeKey = "home" }: { activeKey?: NavKey }) {
 
   return (
     <nav className={pillClasses}>
-      <div className="flex items-center gap-1">
+      <div className="bottom-nav-inner">
         {items.map((item) => {
           const isActive = activeKey === item.key;
           const isHover = hoverKey === item.key;
           const baseOpacity = item.key === "home" && !isActive ? 0.92 : 1;
+
           return (
             <button
               key={item.key}
               type="button"
               onMouseEnter={() => setHoverKey(item.key)}
               onMouseLeave={() => setHoverKey(null)}
-              className={cn("bottom-nav-item select-none text-[var(--on-brand)]", isActive ? "" : "")}
+              className={cn("bottom-nav-item")}
               style={{ opacity: baseOpacity }}
             >
               <span
@@ -47,15 +48,13 @@ export function BottomNavPill({ activeKey = "home" }: { activeKey?: NavKey }) {
                   transform: isActive || isHover ? "scale(1)" : "scale(0.98)",
                 }}
               />
-              <span className="relative inline-flex items-center gap-2">
+              <span className="bottom-nav-item-content">
                 {item.icon ? (
-                  <span className="inline-flex items-center justify-center bottom-nav-item-icon">
+                  <span className="bottom-nav-item-icon">
                     <Home size={20} />
                   </span>
                 ) : (
-                  <span className="text-[16px] leading-[18px] font-normal tracking-[0.1px] whitespace-nowrap">
-                    {item.label}
-                  </span>
+                  <span className="bottom-nav-item-label">{item.label}</span>
                 )}
               </span>
             </button>

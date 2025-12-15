@@ -11,9 +11,9 @@ export function Hero() {
   const textOpacity = useTransform(scrollY, MOTION.hero.opacityRange as number[], MOTION.hero.opacityOutput as number[]);
 
   return (
-    <section className="relative min-h-screen overflow-hidden hero">
+    <section className="hero">
       <video
-        className="absolute inset-0 w-full h-full object-cover hero-video"
+        className="hero-video"
         src="/hero/hero.mp4"
         autoPlay
         muted
@@ -22,24 +22,24 @@ export function Hero() {
         poster="/hero/hero.jpg"
       />
 
-      <div className="absolute inset-0 hero-content">
-        <div className="hero-container relative h-full">
+      <div className="hero-content">
+        <div className="hero-container">
           <motion.div
             style={{ y: yText, opacity: textOpacity }}
-            className="absolute left-0 space-y-6 hero-headline"
+            className="hero-headline"
           >
-          <h1 className="text-white font-bold leading-[1.05] text-[64px] sm:text-[72px] md:text-[80px]">
+          <h1 className="hero-title">
             Learn Japanese
             <br />for real life.
           </h1>
-          <div className="flex gap-3">
+          <div className="hero-cta">
             <Button variant="primary">Choose your scene</Button>
             <Button variant="glass">How Normi works</Button>
           </div>
           </motion.div>
 
-          <div className="absolute right-0 max-w-xs hero-copy">
-          <p className="text-white hero-copy-text">
+          <div className="hero-copy">
+          <p className="hero-copy-text">
             Single account for all your learning moments.
             Speak naturally, not like a textbook.
           </p>
@@ -51,11 +51,11 @@ export function Hero() {
             const target = window.innerHeight * 0.9;
             window.scrollTo({ top: target, behavior: "smooth" });
           }}
-          className="absolute left-0 text-xs rounded-full px-3 py-1 backdrop-blur-md inline-flex items-center gap-2 hero-hint"
+          className="hero-hint"
         >
           <motion.span
             aria-hidden
-            className="inline-block hero-hint-dot"
+            className="hero-hint-dot"
             animate={{ y: [0, -6, 0] }}
             transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut" }}
           />

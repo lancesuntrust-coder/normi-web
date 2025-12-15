@@ -62,9 +62,20 @@ Do NOT place components directly under `src/components`.
 - Do NOT introduce new design tokens without explicit user approval.
 - If a new visual value is needed, flag it instead of implementing it.
 
-### Style Architecture Standards (Strict Ownership)
+### Style Architecture Standards (Strict Ownership + No Tailwind in TSX)
 - Keep horizontal gutters and vertical rhythm independent.
 - Use `layout.tsx` with `content-container` for site-wide gutters.
+
+#### No Tailwind Utilities in TSX (Mandatory)
+- `.tsx/.jsx` files must NOT contain Tailwind utility classes.
+- `className` in TSX may contain ONLY:
+  - semantic, component-owned class names (e.g., `hero-headline`, `top-controls-nav`)
+  - optionally ONE shared layout primitive if already defined (e.g., `content-container`, `full-bleed`, `section-*`)
+- All layout, spacing, typography, color, positioning, sizing, borders, blur, and z-index MUST live in CSS files.
+
+Disallowed in TSX (non-exhaustive): `flex`, `grid`, `items-*`, `justify-*`, `gap-*`, `px-*`, `py-*`, `pt-*`, `pb-*`, `pl-*`, `pr-*`, `m-*`, `w-*`, `h-*`, `min-*`, `max-*`, `text-*`, `bg-*`, `rounded-*`, `absolute`, `relative`, `fixed`, `inset-*`, `top-*`, `left-*`, `right-*`, `bottom-*`, `overflow-*`, `backdrop-*`.
+
+Allowed inline styles: Framer Motion animated values only (e.g., `y`, `opacity`, transforms). No static visuals inline.
 
 #### Ownership Rules
 - `globals.css` may import ONLY:
@@ -72,7 +83,7 @@ Do NOT place components directly under `src/components`.
   - `src/styles/tokens.css`
   - `src/styles/utilities.css`
   - base/reset styles (html/body, typography)
-  - truly shared UI primitives (only if reused across multiple components)
+  - truly shared utilities/layout primitives
 - DO NOT import any section or component CSS files in `globals.css`.
 - Every component/section must import its own CSS directly, e.g.:
   - `src/components/sections/Hero.tsx` → `import "@/styles/sections/hero.css";`
@@ -89,29 +100,40 @@ Do NOT place components directly under `src/components`.
 
 #### Hero Patterns
 - Horizontal: `.hero-container` (tokens `--hero-container-*`).
-- Vertical: `.hero` (or `.hero-section`) (tokens `--hero-space-*`, `--hero-indent-bottom`).
+- Vertical: `.hero` (tokens `--hero-space-*`, `--hero-indent-bottom`).
 - Absolute hero elements bind offsets with `calc(var(--hero-bottom-*) + var(--hero-space-bottom))`.
 
 #### Implementation Rules
-- No static visual inline styles in TSX. Move background, color, z-index, pointer-events, spacing into the component’s CSS file.
-- Inline style is allowed only for motion/animation-driven values (e.g., Framer Motion `y`, `opacity`, transforms) or dynamic state-dependent values.
-- Scope selectors with a root class for the component (e.g., `.hero ...`, `.top-controls ...`). Avoid generic selectors like `.button` inside section CSS unless strictly prefixed and owned.
+- No static visual inline styles in TSX; put them in the component’s CSS.
+- Inline style is allowed only for motion/animation-driven values.
+- Scope selectors with a root class for the component (e.g., `.hero ...`, `.top-controls ...`). Avoid generic selectors like `.button` unless strictly prefixed and owned.
 
 #### Do / Don’t
 - Do: import your component’s CSS in the component file.
 - Do: keep `globals.css` clean with tokens/utilities/base only.
 - Don’t: add section or component CSS imports to `globals.css`.
-- Don’t: use static inline styles for visuals.
+- Don’t: use Tailwind utilities in TSX.
 
-#### Examples
-- `globals.css`
-  - `@import "tailwindcss";`
-  - `@import "../styles/tokens.css";`
-  - `@import "../styles/utilities.css";`
-- `Hero.tsx`
-  - `import "@/styles/sections/hero.css";`
-- `TopControls.tsx`
-  - `import "@/styles/layout/top-controls.css";`
+#### Example: Before → After
+Before (TSX):
+```tsx
+<nav className="flex items-center gap-4 rounded-full px-4 py-2 text-sm">…</nav>
+```
+
+After (TSX + CSS):
+```tsx
+<nav className="top-controls-bar">…</nav>
+```
+```css
+.top-controls-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 9999px;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+```
 
 ---
 

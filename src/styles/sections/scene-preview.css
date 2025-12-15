@@ -6,6 +6,8 @@
 
 .scene-preview-intro {
   color: var(--muted);
+  margin-bottom: 2rem; /* mb-8 */
+  max-width: 42rem; /* ~max-w-2xl */
 }
 
 .scene-preview-grid {
@@ -21,13 +23,26 @@
 }
 
 .scene-preview-card {
-  background: transparent; /* using .glass-card styles globally */
-  border: 0;
   border-radius: 1rem;
-  box-shadow: none;
   padding: 1.5rem; /* p-6 */
+  background: transparent;
+  border: 1px solid var(--glass-border);
+  background-image: linear-gradient(var(--white-06), var(--white-06));
 }
 
 .scene-preview-card-muted {
   color: var(--muted);
+  margin-top: 0.5rem; /* mt-2 */
+  font-size: 0.875rem; /* text-sm */
+}
+
+.scene-preview-title {
+  font-size: 1.5rem; /* text-2xl */
+  font-weight: 600; /* font-semibold */
+  margin-bottom: 1.5rem; /* mb-6 */
+}
+
+.scene-preview-card-title {
+  font-size: 1.125rem; /* text-lg */
+  font-weight: 500; /* font-medium */
 }

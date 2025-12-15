@@ -33,12 +33,12 @@ export default function Home() {
   // no-op: scroll hint is implemented inside Hero
 
   return (
-    <div className="min-h-screen">
+    <div className="home-root">
       {/* Floating elements */}
       <TopControls />
       <BottomNavPill />
       {/* Scroll hint now lives inside Hero; removed from page to keep it within hero bounds */}
-      <div className="fixed home-support">
+      <div className="home-support">
         <SupportButton />
       </div>
 
@@ -51,31 +51,31 @@ export default function Home() {
       <ScenePreview />
 
       <section className="section-md">
-        <h2 className="text-2xl font-semibold mb-6">How it works</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <h2 className="home-title">How it works</h2>
+        <div className="home-grid-3">
           {["Speak in class", "Get private feedback", "Repeat in scenes"].map((t, i) => (
             <motion.div
               key={t}
-              className="glass-card p-6"
+              className="home-card"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-10%" }}
               transition={{ delay: 0.06 * i, duration: 0.5 }}
             >
-              <h3 className="text-lg font-medium">{t}</h3>
-              <p className="mt-2 text-sm home-card-muted">Calm, human, and focused on natural speech.</p>
+              <h3 className="home-card-title">{t}</h3>
+              <p className="home-card-muted">Calm, human, and focused on natural speech.</p>
             </motion.div>
           ))}
         </div>
       </section>
 
       <section className="section-md-b">
-        <h2 className="text-2xl font-semibold mb-6">Testimonials</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <h2 className="home-title">Testimonials</h2>
+        <div className="home-grid-2">
           {["I finally speak without freezing.", "Feels like real life practice."] .map((q, i) => (
             <motion.blockquote
               key={i}
-              className="glass-card p-6 home-quote"
+              className="home-quote"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-10%" }}
