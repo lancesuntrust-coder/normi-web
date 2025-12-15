@@ -21,7 +21,7 @@
 }
 
 .logo { display: inline-flex; align-items: center; }
-.brand { color: var(--white); font-size: 48px; font-weight: 700; letter-spacing: 0.2px; }
+.brand { color: var(--white-95); font-size: 48px; font-weight: 700; letter-spacing: 0.2px; }
 
 .bar {
   display: flex;
@@ -30,11 +30,20 @@
   border-radius: 9999px;
   padding: 0.5rem 1rem;
   font-size: 0.875rem;
-  background: var(--glass-overlay);
-  backdrop-filter: blur(32px);
+  background: var(--glass-overlay-10);
+  border: 1px solid var(--glass-border-18);
+  color: var(--white-92);
+  backdrop-filter: blur(16px);
 }
-.btn { display: inline-flex; align-items: center; gap: 0.5rem; }
-.muted { color: var(--on-brand-85); }
-.separator { display: inline-block; width: 1px; height: 1rem; background: var(--glass-separator); }
-.login { border-radius: 9999px; padding: 0.25rem 0.75rem; background: var(--glass-overlay); backdrop-filter: blur(32px); color: var(--on-brand-85); }
-.signup { border-radius: 9999px; padding: 0.5rem 1rem; font-weight: 600; background: var(--on-brand); color: var(--brand-coral-strong); }
+.btn { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--white-92); }
+.muted { color: var(--white-92); }
+.separator { display: inline-block; width: 1px; height: 1rem; background: var(--white-22); }
+.login { border-radius: 9999px; padding: 0.25rem 0.75rem; background: transparent; color: var(--white-92); }
+.signup {
+  border-radius: 9999px;
+  padding: 0.5rem 0.9rem;
+  font-weight: 600;
+  background: var(--white-92);
+  color: var(--black-72);
+  border: 1px solid var(--white-55);
+}

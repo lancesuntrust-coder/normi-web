@@ -6,6 +6,20 @@
   padding: 0.5rem 1.25rem;
   font-weight: 600;
 }
-.primary { color: var(--brand-coral-strong); background: var(--on-brand); }
-.glass { color: var(--on-brand); background: var(--glass-overlay); border: 1px solid var(--glass-border); }
+.primary {
+  background: var(--white-92);
+  color: var(--black-72);
+  border: 1px solid var(--white-55);
+  box-shadow: var(--shadow-cta);
+}
+.primary:hover { background: var(--white-98); }
+
+/* Secondary: soft white pill (not heavy glass) */
+.glass {
+  background: rgba(255,255,255,0.20);
+  color: var(--white-92);
+  border: 1px solid var(--white-28);
+  backdrop-filter: blur(8px);
+}
+.glass:hover { background: rgba(255,255,255,0.26); }
 .ghost { color: var(--on-brand); background: transparent; }
