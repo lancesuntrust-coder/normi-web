@@ -2,9 +2,9 @@
 
 :root {
   /* Brand & Color */
-  --brand-coral: #f84d36;
-  --brand-coral-strong: #f05a3c;
-  --brand-coral-soft: #f26445;
+  --brand-coral: #f73a20;
+  --brand-coral-strong: #f73a20;
+  --brand-coral-soft: #f73a20;
   --on-brand: #ffffff;
 
   /* Text */
@@ -94,8 +94,8 @@
   --nav-highlight-hover: rgba(255,255,255,0.12);
 
   /* Coral capsule for bottom nav */
-  --coral-pill: #e85b4a;
-  --coral-pill-hover: #ee6a59;
+  --coral-pill: #f73a20;
+  --coral-pill-hover: #f73a20;
 
   /* Accessibility */
   --focus-ring: rgba(255,255,255,0.85);

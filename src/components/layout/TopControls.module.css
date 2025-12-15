@@ -39,43 +39,54 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  border-radius: 9999px;
-  padding: 0.5rem 1rem;
+  border-radius: var(--radius-pill);
+  padding: 12px;
   font-size: 0.875rem;
-  background: var(--glass-overlay-10);
+  background: var(--brand-coral);
   border: 1px solid var(--glass-border-18);
   color: var(--white-92);
-  backdrop-filter: blur(16px);
 }
+
 .btn {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  color: var(--white-92);
+  color: #ffffff;
 }
 
 .muted {
-  color: var(--white-92);
+  color: #ffffff;
 }
 
 .separator {
   display: inline-block;
   width: 1px;
   height: 1rem;
-  background: var(--white-22);
+  background: var(--glass-separator);
 }
 
 .login {
-  border-radius: 9999px;
-  padding: 0.25rem 0.75rem;
-  background: transparent;
-  color: var(--white-92);
-}
-.signup {
-  border-radius: 9999px;
+  border-radius: var(--radius-pill);
   padding: 0.5rem 0.9rem;
-  font-weight: 600;
-  background: var(--white-92);
-  color: var(--black-72);
-  border: 1px solid var(--white-55);
+  background: rgba(255,255,255,0.06);
+  color: #ffffff;
+  border: 1px solid rgba(255,255,255,0.25);
+}
+
+.login:hover {
+  background: rgba(255,255,255,0.10);
+  border-color: rgba(255,255,255,0.30);
+}
+
+.signup {
+  border-radius: var(--radius-pill);
+  padding: 0.5rem 0.9rem;
+  font-weight: 700;
+  background: var(--on-brand);
+  color: var(--brand-coral);
+  border: none;
+}
+
+.signup:hover {
+  background: rgba(255,255,255,0.95);
 }

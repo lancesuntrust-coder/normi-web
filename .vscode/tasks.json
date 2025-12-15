@@ -96,6 +96,18 @@
 			"type": "shell",
 			"command": "npx eslint && npm run build",
 			"group": "build"
+		},
+		{
+			"label": "Lint and Build",
+			"type": "shell",
+			"command": "npx eslint && npm run build",
+			"group": "build"
+		},
+		{
+			"label": "Lint and Build",
+			"type": "shell",
+			"command": "npx eslint && npm run build",
+			"group": "build"
 		}
 	]
 }
