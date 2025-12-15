@@ -34,21 +34,8 @@ const eslintConfig = defineConfig([
         "error",
         {
           patterns: [
-            {
-              group: ["../components", "../../components"],
-              message:
-                "Import canonical components via '@/components/...', not relative barrels.",
-            },
-          ],
-        },
-      ],
-      // Disallow parent relative imports via explicit patterns (avoids false positives on aliases)
-      "no-restricted-imports": [
-        "error",
-        {
-          patterns: [
             { group: ["../*", "../../*", "../../../*"], message: "Use alias imports '@/...' instead of parent relative imports." },
-            { group: ["../components", "../../components"], message: "Import canonical components via '@/components/...', not relative barrels." }
+            { group: ["../components", "../../components"], message: "Import canonical components via '@/components/...', not relative barrels." },
           ],
         },
       ],
@@ -57,29 +44,24 @@ const eslintConfig = defineConfig([
         "warn",
         {
           groups: ["builtin", "external", "internal", "parent", "sibling", "index", "object"],
-          pathGroups: [
-            { pattern: "@/**", group: "internal", position: "before" },
-          ],
+          pathGroups: [{ pattern: "@/**", group: "internal", position: "before" }],
           pathGroupsExcludedImportTypes: ["builtin"],
           alphabetize: { order: "asc", caseInsensitive: true },
           "newlines-between": "always",
         },
       ],
-      // Disallow raw hex colors (e.g., #fff, #ffffff) in TS/TSX literals
+      // Disallow raw hex colors and rgba strings in TS/TSX literals
       "no-restricted-syntax": [
         "error",
         {
-          selector:
-            "Literal[value=/^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/]",
-          message:
-            "Use CSS variables (tokens) like 'var(--text)' instead of raw hex colors.",
+          selector: "Literal[value=/^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/]",
+          message: "Use CSS variables (tokens) like 'var(--text)' instead of raw hex colors.",
         },
         {
-          selector:
-            "Literal[value=/^rgba?\\(.+\\)$/]",
-          message:
-            "Use CSS variables (tokens) like 'var(--glass)' instead of raw rgba/rgba strings.",
+          selector: "Literal[value=/^rgba?\\(.+\\)$/]",
+          message: "Use CSS variables (tokens) like 'var(--glass)' instead of raw rgba/rgba strings.",
         },
+        // Tailwind-in-TSX is enforced via Husky pre-commit to avoid false positives in ESLint selectors
       ],
     },
   },

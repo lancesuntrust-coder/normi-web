@@ -24,3 +24,18 @@ if [ -n "$ADDED_FILES" ] && echo "$ADDED_FILES" | grep -E '^src/components/index
 fi
 
 echo "[husky] Pre-commit checks passed."
+
+# Enforce: No Tailwind utilities in TSX className
+FILES=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\\.tsx$' || true)
+if [ -n "$FILES" ]; then
+  echo "[husky] Checking TSX for Tailwind utilities in className..."
+  BANNED='(flex|grid|items-|justify-|gap-|px-|py-|pt-|pb-|pl-|pr-|m-|w-|h-|min-|max-|text-|bg-|rounded-|absolute|relative|fixed|inset-|top-|left-|right-|bottom-|overflow-|backdrop-)'
+  for f in $FILES; do
+    if git show ":$f" | grep -nE "className\\s*=\\s*['\"]([^'\"]*${BANNED}[^'\"]*)" >/dev/null 2>&1; then
+      echo "[husky] Error: Tailwind utility detected in $f. Move all utilities into component CSS and use semantic classes in TSX." >&2
+      exit 1
+    fi
+  done
+fi
+
+echo "[husky] Tailwind-in-TSX check passed."
