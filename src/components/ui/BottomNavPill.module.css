@@ -1,7 +1,6 @@
-.root { position: fixed; left: 50%; transform: translateX(-50%); bottom: var(--bottom-nav-bottom); z-index: var(--z-nav); border-radius: var(--radius-pill); background: var(--coral-pill); overflow: hidden; display: flex; align-items: center; padding: 12px 16px; box-shadow: var(--shadow-cta); border: 1px solid var(--white-22); }
-.root:hover { background: var(--coral-pill-hover); }
+.root { position: fixed; left: 50%; transform: translateX(-50%); bottom: var(--bottom-nav-bottom); z-index: var(--z-nav); border-radius: var(--radius-pill); background: var(--coral-pill); overflow: hidden; display: flex; align-items: center; padding: 8px; box-shadow: var(--shadow-cta); }
 .inner { display: flex; align-items: center; gap: 8px; }
-.item { position: relative; display: inline-flex; align-items: center; justify-content: center; color: var(--white-95); height: 44px; border-radius: var(--radius-pill); padding: 0 20px; background: transparent; }
+.item { position: relative; display: inline-flex; align-items: center; justify-content: center; color: var(--white-92); height: 44px; border-radius: var(--radius-pill); padding: 10px 16px; background: transparent; border: none; outline: none; }
 .itemContent { position: relative; display: inline-flex; align-items: center; gap: 0.5rem; }
 .itemIcon { display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; }
 .itemIcon svg { width: 18px; height: 18px; }
@@ -10,5 +9,5 @@
 
 /* State classes to avoid inline styles */
 .iconOnly:not(.active) { opacity: 0.92; }
-.item.hover .highlight { opacity: 0.12; }
+.item.hover .highlight { opacity: 0.14; }
 .item.active .highlight { opacity: 0.18; }

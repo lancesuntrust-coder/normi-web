@@ -30,7 +30,6 @@ export function BottomNavPill({ activeKey = "home" }: { activeKey?: NavKey }) {
         {items.map((item) => {
           const isActive = activeKey === item.key;
           const isHover = hoverKey === item.key;
-          const baseOpacity = item.key === "home" && !isActive ? 0.92 : 1;
 
           return (
             <button
