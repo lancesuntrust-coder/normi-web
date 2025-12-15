@@ -141,10 +141,26 @@ After (TSX + CSS):
   - tokens import
   - minimal reset (box-sizing, margins, media elements, form controls)
   - app-level defaults (background, text color, typography smoothing)
-  - neutral link and focus-visible styles
+  - neutral link styles
+  - tokenized focus-visible styles
 - Fonts are defined once via `next/font` in `src/app/layout.tsx` and exposed as CSS variables (`--font-sans`, `--font-mono`) on the `<html>` element.
 - The `body` uses `font-family: var(--font-sans, system-ui, …)`; components inherit from body by default.
 - All component and layout visuals remain in their colocated CSS Modules.
+
+### Accessibility: Focus Ring (Mandatory)
+- Use a global tokenized ring for consistent, accessible focus styling:
+  - Tokens in `tokens.css`: `--focus-ring`, `--focus-ring-offset`
+  - Global rule in `globals.css`:
+    `:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: var(--focus-ring-offset); }`
+- Never remove focus outlines. Component overrides must remain visible and meet AA+ contrast.
+
+### Layout Primitive: `content-container`
+- Keep `content-container` as the single global primitive for readable width and gutters.
+- It remains defined in `src/styles/utilities.css` and applied once in `layout.tsx` around `{children}`.
+- Usage:
+  - Normal sections are contained by default.
+  - Full-bleed sections (hero, edge-to-edge visuals) must explicitly escape the container using a section-scoped wrapper class.
+  - Do not duplicate or reimplement container logic in components.
 
 ## Motion & Behavior
 - Use Framer Motion for animations.
