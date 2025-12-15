@@ -1,5 +1,7 @@
+/* Design Tokens */
+
 :root {
-  /* Brand */
+  /* Brand & Color */
   --brand-coral: #f84d36;
   --brand-coral-strong: #f05a3c;
   --brand-coral-soft: #f26445;
@@ -8,23 +10,21 @@
   /* Text */
   --text-strong: #0b0b0b;
   --text-muted: #6b7280;
-  /* Aliases used in app */
   --text: var(--text-strong);
   --muted: var(--text-muted);
 
-  /* Glass overlays (if re-enabled later) */
+  /* Overlays (glass) */
   --glass-overlay: rgba(255, 255, 255, 0.12);
   --glass-border: rgba(255, 255, 255, 0.35);
-  /* Aliases used in app */
   --glass: var(--glass-overlay);
   --glass-separator: rgba(255, 255, 255, 0.25);
   --on-brand-85: rgba(255, 255, 255, 0.85);
 
   /* Radii */
   --radius-pill: 9999px;
-  --radius-inner: 18px;
+  --radius-inner: 9999px;
 
-  /* Shadows (kept for future; default none) */
+  /* Shadows */
   --shadow-soft: 0 16px 40px rgba(0,0,0,0.18);
   --shadow-medium: 0 35px 65px rgba(0,0,0,0.22);
   --shadow-tiny: 0 6px 18px rgba(0,0,0,0.18);
@@ -35,11 +35,10 @@
   --peach-100: #ffd9c7;
   --peach-200: #ffe7d8;
   --peach-300: #fff2ea;
-  /* Ambient radial glow */
   --hero-ambient-start: rgba(255,255,255,0.45);
   --hero-ambient-end: rgba(255,255,255,0);
 
-  /* Whites for gradients/borders */
+  /* Whites/Blacks */
   --white-95: rgba(255,255,255,0.95);
   --white-85: rgba(255,255,255,0.85);
   --white-70: rgba(255,255,255,0.70);
@@ -47,14 +46,39 @@
   --black-100: rgba(0,0,0,1);
   --black-0: rgba(0,0,0,0);
 
-  /* Z-index tokens */
+  /* Z-Index */
   --z-video: 0;
   --z-content: 20;
   --z-nav: 40;
-}
 
-/* BottomNav highlight overlays */
-:root {
+  /* Containers & Section Spacing (global) */
+  --container-max: 1740px;
+  --container-pad: 24px;
+  --container-pad-sm: 0px;
+  --space-section-md: 100px;
+  --space-section-footer: 64px;
+
+  /* Hero Containers (independent from global) */
+  --hero-container-max: 1740px;
+  --hero-container-pad: 24px;
+  --hero-container-pad-sm: 0px;
+
+  /* Hero Rhythm (independent spacing) */
+  --hero-space-top: 0px;
+  --hero-space-bottom: 0px;
+  /* Hero indentation (outside spacing below hero) */
+  --hero-indent-bottom: 0px;
+
+  /* Overlay Offsets */
+  --top-controls-top: 24px;
+  --overlay-top: 24px;
+  --overlay-bottom: 28px;
+  --bottom-nav-bottom: 28px;
+  --hero-bottom-headline: 96px;
+  --hero-bottom-copy: 112px;
+  --hero-bottom-hint: 24px;
+
+  /* Component Highlights */
   --nav-highlight-active: rgba(255,255,255,0.16);
   --nav-highlight-hover: rgba(255,255,255,0.12);
 }

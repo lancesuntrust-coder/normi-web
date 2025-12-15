@@ -1,0 +1,36 @@
+/* TopControls layout-scoped styles */
+
+.top-controls {
+  z-index: var(--z-nav);
+  top: var(--overlay-top);
+}
+
+.top-controls-bar {
+  background: var(--glass-overlay);
+  backdrop-filter: blur(32px);
+}
+
+.top-controls-separator {
+  background: var(--glass-separator);
+}
+
+.top-controls-muted {
+  color: var(--on-brand-85);
+}
+
+.top-controls-login {
+  background: var(--glass-overlay);
+  backdrop-filter: blur(32px);
+  color: var(--on-brand-85);
+}
+
+.top-controls-signup {
+  background: var(--on-brand);
+  color: var(--brand-coral-strong);
+}
+
+.top-controls-brand {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}

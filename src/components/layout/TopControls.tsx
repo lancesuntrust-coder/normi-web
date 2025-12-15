@@ -2,40 +2,38 @@
 import { motion } from "framer-motion";
 import { Globe } from "lucide-react";
 import Link from "next/link";
+import "@/styles/layout/top-controls.css";
 
 export function TopControls() {
   return (
     <>
       <motion.div
-        className="fixed top-6 left-6"
-        style={{ zIndex: "var(--z-nav)" }}
+        className="fixed left-0 right-0 top-controls"
         initial={{ opacity: 0, y: -8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
-        <Link href="/" className="inline-flex items-center">
-          <span className="text-white" style={{ fontSize: 24, fontWeight: 700, letterSpacing: "0.2px" }}>Normi</span>
-        </Link>
-      </motion.div>
+        <div className="content-container flex items-center justify-between">
+          <Link href="/" className="inline-flex items-center">
+            <span className="text-white top-controls-brand">Normi</span>
+          </Link>
 
-      <motion.nav
-        className="fixed top-6 right-6 flex items-center gap-4 rounded-full px-4 py-2 text-sm"
-        style={{ background: "var(--glass-overlay)", backdropFilter: "blur(32px)", zIndex: "var(--z-nav)" }}
-        initial={{ opacity: 0, y: -8 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-      >
-        <button className="inline-flex items-center gap-2" style={{ color: "var(--on-brand-85)" }}>
-          <Globe size={16} /> EN
-        </button>
-        <span className="h-4 w-px" style={{ background: "var(--glass-separator)" }} />
-        <Link href="#" className="rounded-full px-3 py-1" style={{ background: "var(--glass-overlay)", backdropFilter: "blur(32px)", color: "var(--on-brand-85)" }}>
-          Login
-        </Link>
-        <Link href="#" className="rounded-full px-4 py-2 font-semibold" style={{ background: "var(--on-brand)", color: "var(--brand-coral-strong)" }}>
-          Sign up
-        </Link>
-      </motion.nav>
+          <nav
+            className="flex items-center gap-4 rounded-full px-4 py-2 text-sm top-controls-bar"
+          >
+            <button className="inline-flex items-center gap-2 top-controls-muted">
+              <Globe size={16} /> EN
+            </button>
+            <span className="h-4 w-px top-controls-separator" />
+            <Link href="#" className="rounded-full px-3 py-1 top-controls-login">
+              Login
+            </Link>
+            <Link href="#" className="rounded-full px-4 py-2 font-semibold top-controls-signup">
+              Sign up
+            </Link>
+          </nav>
+        </div>
+      </motion.div>
     </>
   );
 }

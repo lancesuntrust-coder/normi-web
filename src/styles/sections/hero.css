@@ -1,0 +1,55 @@
+/* Hero section-scoped styles: map tokens into tweakable classes */
+
+/* Vertical rhythm + indentation */
+.hero {
+  padding-top: var(--hero-space-top);
+  padding-bottom: var(--hero-space-bottom);
+  margin-bottom: var(--hero-indent-bottom);
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* Horizontal gutters */
+.hero-container {
+  max-width: var(--hero-container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--hero-container-pad);
+  padding-right: var(--hero-container-pad);
+}
+
+@media (min-width: 640px) {
+  .hero-container {
+    padding-left: var(--hero-container-pad-sm);
+    padding-right: var(--hero-container-pad-sm);
+  }
+}
+
+/* Absolute positions respecting vertical spacing */
+.hero-headline {
+  bottom: calc(var(--hero-bottom-headline) + var(--hero-space-bottom));
+}
+
+.hero-copy {
+  bottom: calc(var(--hero-bottom-copy) + var(--hero-space-bottom));
+}
+
+.hero-hint {
+  bottom: calc(var(--hero-bottom-hint) + var(--hero-space-bottom));
+  background: var(--glass);
+  color: var(--on-brand-85);
+}
+
+.hero-hint-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background: var(--on-brand);
+}
+
+.hero-copy-text { opacity: 0.85; }
+
+.hero-video { pointer-events: none; z-index: var(--z-video); }
+
+.hero-content { z-index: var(--z-content); }

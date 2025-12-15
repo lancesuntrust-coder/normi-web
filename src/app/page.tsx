@@ -1,8 +1,8 @@
 "use client";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import Lenis from "lenis";
 // import { MessageCircle } from "lucide-react";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 import { Footer } from "@/components/layout/Footer";
 import { TopControls } from "@/components/layout/TopControls";
@@ -10,48 +10,47 @@ import { Hero } from "@/components/sections/Hero";
 import { ScenePreview } from "@/components/sections/ScenePreview";
 import { BottomNavPill } from "@/components/ui/BottomNavPill";
 import { SupportButton } from "@/components/ui/SupportButton";
+import "@/styles/sections/home.css";
 
 export default function Home() {
   // Smooth scrolling via Lenis (micro motion philosophy)
+  const lenisRef = useRef<Lenis | null>(null);
   useEffect(() => {
     const lenis = new Lenis({ lerp: 0.1, smoothWheel: true });
+    lenisRef.current = lenis;
     let rafId = 0;
     const raf = (time: number) => {
       lenis.raf(time);
       rafId = requestAnimationFrame(raf);
     };
     rafId = requestAnimationFrame(raf);
-    return () => cancelAnimationFrame(rafId);
+    return () => {
+      cancelAnimationFrame(rafId);
+      lenisRef.current = null;
+    };
   }, []);
 
-  const { scrollY } = useScroll();
-  // Bottom-left scroll hint: fades out after initial scroll
-  const scrollHintOpacity = useTransform(scrollY, [0, 200], [1, 0]);
+  // no-op: scroll hint is implemented inside Hero
 
   return (
     <div className="min-h-screen">
       {/* Floating elements */}
       <TopControls />
       <BottomNavPill />
-      <motion.div
-        className="fixed bottom-8 left-6 text-xs"
-        style={{ color: "var(--muted)", opacity: scrollHintOpacity as unknown as number, zIndex: "var(--z-content)" }}
-      >
-        <div className="rounded-full px-3 py-1 backdrop-blur-md border" style={{ background: "var(--glass)", borderColor: "var(--glass-border)" }}>
-          Scroll
-        </div>
-      </motion.div>
-      <div className="fixed bottom-8 right-6" style={{ zIndex: "var(--z-nav)" }}>
+      {/* Scroll hint now lives inside Hero; removed from page to keep it within hero bounds */}
+      <div className="fixed home-support">
         <SupportButton />
       </div>
 
-      {/* Treat hero as a stage */}
-      <Hero />
+      {/* Treat hero as a stage (full-bleed wrapper to escape global gutters) */}
+      <div className="full-bleed">
+        <Hero />
+      </div>
 
-      {/* Subsequent sections (simple placeholders adhering to motion-first restraint) */}
+      {/* Subsequent sections (standardized gutters from layout wrapper) */}
       <ScenePreview />
 
-      <section className="mx-auto max-w-7xl px-6 sm:px-10 py-24">
+      <section className="section-md">
         <h2 className="text-2xl font-semibold mb-6">How it works</h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
           {["Speak in class", "Get private feedback", "Repeat in scenes"].map((t, i) => (
@@ -64,20 +63,19 @@ export default function Home() {
               transition={{ delay: 0.06 * i, duration: 0.5 }}
             >
               <h3 className="text-lg font-medium">{t}</h3>
-              <p className="mt-2 text-sm" style={{ color: "var(--muted)" }}>Calm, human, and focused on natural speech.</p>
+              <p className="mt-2 text-sm home-card-muted">Calm, human, and focused on natural speech.</p>
             </motion.div>
           ))}
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 sm:px-10 pb-24">
+      <section className="section-md-b">
         <h2 className="text-2xl font-semibold mb-6">Testimonials</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {["I finally speak without freezing.", "Feels like real life practice."] .map((q, i) => (
             <motion.blockquote
               key={i}
-              className="glass-card p-6"
-              style={{ color: "var(--text)" }}
+              className="glass-card p-6 home-quote"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-10%" }}

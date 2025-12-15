@@ -1,0 +1,18 @@
+/* Home page section-scoped styles */
+
+/* Floating support button container */
+.home-support {
+  z-index: var(--z-nav);
+  bottom: var(--overlay-bottom);
+  right: var(--container-pad);
+}
+
+/* Cards in How it works */
+.home-card-muted {
+  color: var(--muted);
+}
+
+/* Testimonials */
+.home-quote {
+  color: var(--text);
+}

@@ -1,9 +1,17 @@
-/* Global utility classes (optional, kept minimal) */
+/* Utilities */
+/* Layout: hero section (vertical rhythm + indentation) */
+.hero {
+  padding-top: var(--hero-space-top);
+  padding-bottom: var(--hero-space-bottom);
+  margin-bottom: var(--hero-indent-bottom);
+}
 
+/* Text helpers */
 .text-balance {
   text-wrap: balance;
 }
 
+/* Accessibility helpers */
 .visually-hidden {
   position: absolute !important;
   width: 1px;
@@ -14,4 +22,92 @@
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+/* Layout: full-bleed */
+.full-bleed {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  max-width: 100vw;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Layout: containers (global content) */
+.content-container {
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-pad);
+  padding-right: var(--container-pad);
+}
+
+@media (min-width: 640px) {
+  .content-container {
+    padding-left: var(--container-pad-sm);
+    padding-right: var(--container-pad-sm);
+  }
+}
+
+/* Section spacing */
+.section-md {
+  padding-top: var(--space-section-md);
+  padding-bottom: var(--space-section-md);
+}
+
+/* Layout: convenience contained (rarely needed when layout wraps content) */
+.contained {
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-pad);
+  padding-right: var(--container-pad);
+}
+
+@media (min-width: 640px) {
+  .contained {
+    padding-left: var(--container-pad-sm);
+    padding-right: var(--container-pad-sm);
+  }
+}
+
+.section-contained-md {
+  padding-top: var(--space-section-md);
+  padding-bottom: var(--space-section-md);
+}
+
+.section-md-b {
+  padding-bottom: var(--space-section-md);
+}
+
+.section-footer {
+  padding-top: var(--space-section-footer);
+  padding-bottom: var(--space-section-footer);
+}
+
+/* Layout: hero container (uses hero-specific tokens) */
+.hero-container {
+  max-width: var(--hero-container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--hero-container-pad);
+  padding-right: var(--hero-container-pad);
+}
+
+@media (min-width: 640px) {
+  .hero-container {
+    padding-left: var(--hero-container-pad-sm);
+    padding-right: var(--hero-container-pad-sm);
+  }
+}
+
+/* Layout: hero section vertical rhythm */
+.hero-section {
+  padding-top: var(--hero-space-top);
+  padding-bottom: var(--hero-space-bottom);
+  margin-bottom: var(--hero-indent-bottom);
 }

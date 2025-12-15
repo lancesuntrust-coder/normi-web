@@ -2,6 +2,7 @@
 import Link from "next/link";
 
 import { cn } from "@/lib/cn";
+import "@/styles/ui/button.css";
 
 type Variant = "primary" | "glass" | "ghost";
 type ButtonProps = {
@@ -12,22 +13,9 @@ type ButtonProps = {
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 const variantClasses: Record<Variant, string> = {
-  primary: cn(
-    "rounded-full px-5 py-2 font-semibold",
-    "text-[var(--brand-coral-strong)]",
-    "bg-[var(--on-brand)]"
-  ),
-  glass: cn(
-    "rounded-full px-5 py-2 font-semibold border",
-    "text-[var(--on-brand)]",
-    "bg-[var(--glass-overlay)]",
-    "border-[var(--glass-border)]"
-  ),
-  ghost: cn(
-    "rounded-full px-5 py-2 font-semibold",
-    "bg-transparent",
-    "text-[var(--on-brand)]"
-  ),
+  primary: cn("btn", "btn-primary"),
+  glass: cn("btn", "btn-glass"),
+  ghost: cn("btn", "btn-ghost"),
 };
 
 export function Button({ variant = "primary", className, href, children, ...props }: ButtonProps) {

@@ -1,0 +1,33 @@
+/* ScenePreview section-scoped styles */
+
+.scene-preview {
+  /* vertical spacing via utility class remains; this class is for clarity */
+}
+
+.scene-preview-intro {
+  color: var(--muted);
+}
+
+.scene-preview-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem; /* 6 * 0.25rem */
+}
+
+@media (min-width: 640px) {
+  .scene-preview-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.scene-preview-card {
+  background: transparent; /* using .glass-card styles globally */
+  border: 0;
+  border-radius: 1rem;
+  box-shadow: none;
+  padding: 1.5rem; /* p-6 */
+}
+
+.scene-preview-card-muted {
+  color: var(--muted);
+}

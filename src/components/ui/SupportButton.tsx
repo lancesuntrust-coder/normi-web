@@ -2,6 +2,7 @@
 import { MessageCircle } from "lucide-react";
 
 import { cn } from "@/lib/cn";
+import "@/styles/ui/support-button.css";
 
 type SupportButtonProps = {
   className?: string;
@@ -12,22 +13,21 @@ type SupportButtonProps = {
 
 export function SupportButton({ className, onClick, href, children }: SupportButtonProps) {
   const content = (
-    <span className={cn("rounded-full px-4 py-2 backdrop-blur-md inline-flex items-center gap-2", className)}
-      style={{ background: "var(--glass)", color: "var(--on-brand-85)" }}>
+    <span className={cn("support-button-content", className)}>
       <MessageCircle size={16} /> {children ?? "Support"}
     </span>
   );
 
   if (href) {
     return (
-      <a href={href} onClick={onClick} className="inline-block">
+      <a href={href} onClick={onClick} className="support-button">
         {content}
       </a>
     );
   }
 
   return (
-    <button onClick={onClick} className="inline-block">
+    <button onClick={onClick} className="support-button">
       {content}
     </button>
   );

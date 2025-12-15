@@ -1,0 +1,34 @@
+/* HeroVisual UI styles */
+
+.hero-visual {
+  position: relative;
+  height: 560px;
+}
+
+.hero-visual-media {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  filter: var(--shadow-visual);
+}
+
+.hero-visual-video {
+  border-radius: 1rem; /* rounded-2xl */
+  width: clamp(320px, 42vw, 720px);
+  height: auto;
+}
+
+.hero-visual-fallback {
+  position: absolute;
+  inset: 0;
+  background: var(--brand-coral);
+}
+
+.hero-visual-ambient {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(1200px 560px at 65% 50%, var(--hero-ambient-start), var(--hero-ambient-end) 60%);
+  -webkit-mask-image: radial-gradient(560px 560px at 65% 50%, var(--black-100), var(--black-0) 70%);
+  mask-image: radial-gradient(560px 560px at 65% 50%, var(--black-100), var(--black-0) 70%);
+}

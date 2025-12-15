@@ -1,6 +1,7 @@
 "use client";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import "@/styles/ui/hero-visual.css";
 
 export function HeroVisual() {
   const { scrollY } = useScroll();
@@ -17,29 +18,20 @@ export function HeroVisual() {
   }, []);
 
   return (
-    <div className="relative h-[560px]">
+    <div className="hero-visual">
       {!useFallback ? (
-        <motion.div style={{ y: yVisual, filter: "var(--shadow-visual)" }} className="absolute right-0 top-1/2 -translate-y-1/2">
-          <video ref={videoRef} autoPlay muted loop playsInline preload="auto" className="rounded-2xl" style={{ width: "clamp(320px, 42vw, 720px)", height: "auto" }}>
+        <motion.div style={{ y: yVisual }} className="hero-visual-media">
+          <video ref={videoRef} autoPlay muted loop playsInline preload="auto" className="hero-visual-video">
             <source src="/hero/hero.webm" type="video/webm" />
             <source src="/hero/hero.mp4" type="video/mp4" />
           </video>
         </motion.div>
       ) : (
-        <div className="absolute inset-0" style={{ background: "var(--brand-coral)" }} />
+        <div className="hero-visual-fallback" />
       )}
 
       {!useFallback && (
-        <div
-          aria-hidden="true"
-          className="absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(1200px 560px at 65% 50%, var(--hero-ambient-start), var(--hero-ambient-end) 60%)",
-            maskImage:
-              "radial-gradient(560px 560px at 65% 50%, var(--black-100), var(--black-0) 70%)",
-          }}
-        />
+        <div aria-hidden="true" className="hero-visual-ambient" />
       )}
     </div>
   );

@@ -62,6 +62,57 @@ Do NOT place components directly under `src/components`.
 - Do NOT introduce new design tokens without explicit user approval.
 - If a new visual value is needed, flag it instead of implementing it.
 
+### Style Architecture Standards (Strict Ownership)
+- Keep horizontal gutters and vertical rhythm independent.
+- Use `layout.tsx` with `content-container` for site-wide gutters.
+
+#### Ownership Rules
+- `globals.css` may import ONLY:
+  - `tailwindcss` (if used)
+  - `src/styles/tokens.css`
+  - `src/styles/utilities.css`
+  - base/reset styles (html/body, typography)
+  - truly shared UI primitives (only if reused across multiple components)
+- DO NOT import any section or component CSS files in `globals.css`.
+- Every component/section must import its own CSS directly, e.g.:
+  - `src/components/sections/Hero.tsx` → `import "@/styles/sections/hero.css";`
+  - `src/components/layout/TopControls.tsx` → `import "@/styles/layout/top-controls.css";`
+
+#### Three-Layer Model
+- Tokens: centralized variables in `src/styles/tokens.css` (single `:root`, grouped). Do not change values without request.
+- Utilities: global helpers in `src/styles/utilities.css` (`content-container`, `full-bleed`, `section-*`, a11y helpers, hero utilities).
+- Section Styles: one file per component under `src/styles/sections|layout|ui` with clear class names, imported by the owning component.
+
+#### Section Rhythm
+- Use `section-*` utilities for vertical spacing (`section-md`, `section-md-b`, `section-footer`).
+- Do not hardcode margins/padding in components for section spacing.
+
+#### Hero Patterns
+- Horizontal: `.hero-container` (tokens `--hero-container-*`).
+- Vertical: `.hero` (or `.hero-section`) (tokens `--hero-space-*`, `--hero-indent-bottom`).
+- Absolute hero elements bind offsets with `calc(var(--hero-bottom-*) + var(--hero-space-bottom))`.
+
+#### Implementation Rules
+- No static visual inline styles in TSX. Move background, color, z-index, pointer-events, spacing into the component’s CSS file.
+- Inline style is allowed only for motion/animation-driven values (e.g., Framer Motion `y`, `opacity`, transforms) or dynamic state-dependent values.
+- Scope selectors with a root class for the component (e.g., `.hero ...`, `.top-controls ...`). Avoid generic selectors like `.button` inside section CSS unless strictly prefixed and owned.
+
+#### Do / Don’t
+- Do: import your component’s CSS in the component file.
+- Do: keep `globals.css` clean with tokens/utilities/base only.
+- Don’t: add section or component CSS imports to `globals.css`.
+- Don’t: use static inline styles for visuals.
+
+#### Examples
+- `globals.css`
+  - `@import "tailwindcss";`
+  - `@import "../styles/tokens.css";`
+  - `@import "../styles/utilities.css";`
+- `Hero.tsx`
+  - `import "@/styles/sections/hero.css";`
+- `TopControls.tsx`
+  - `import "@/styles/layout/top-controls.css";`
+
 ---
 
 ## Motion & Behavior

@@ -1,0 +1,9 @@
+/* Footer layout-scoped styles */
+
+.footer {
+  /* vertical spacing handled by .section-footer utility */
+}
+
+.footer-muted {
+  color: var(--muted);
+}
