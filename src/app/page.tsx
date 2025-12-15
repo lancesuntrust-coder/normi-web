@@ -1,7 +1,7 @@
 "use client";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Lenis from "lenis";
-import { MessageCircle } from "lucide-react";
+// import { MessageCircle } from "lucide-react";
 import { useEffect } from "react";
 
 import { Footer } from "@/components/layout/Footer";
@@ -9,6 +9,7 @@ import { TopControls } from "@/components/layout/TopControls";
 import { Hero } from "@/components/sections/Hero";
 import { ScenePreview } from "@/components/sections/ScenePreview";
 import { BottomNavPill } from "@/components/ui/BottomNavPill";
+import { SupportButton } from "@/components/ui/SupportButton";
 
 export default function Home() {
   // Smooth scrolling via Lenis (micro motion philosophy)
@@ -41,9 +42,7 @@ export default function Home() {
         </div>
       </motion.div>
       <div className="fixed bottom-8 right-6" style={{ zIndex: "var(--z-nav)" }}>
-        <button className="rounded-full px-4 py-2 backdrop-blur-md border inline-flex items-center gap-2" style={{ background: "var(--glass)", borderColor: "var(--glass-border)", color: "var(--text)" }}>
-          <MessageCircle size={16} /> Support
-        </button>
+        <SupportButton />
       </div>
 
       {/* Treat hero as a stage */}
