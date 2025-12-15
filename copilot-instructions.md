@@ -79,20 +79,17 @@ Allowed inline styles: Framer Motion animated values only (e.g., `y`, `opacity`,
 
 #### Ownership Rules
 - `globals.css` may import ONLY:
-  - `tailwindcss` (if used)
   - `src/styles/tokens.css`
-  - `src/styles/utilities.css`
   - base/reset styles (html/body, typography)
-  - truly shared utilities/layout primitives
+  - minimal global a11y defaults
 - DO NOT import any section or component CSS files in `globals.css`.
 - Every component/section must import its own CSS directly, e.g.:
-  - `src/components/sections/Hero.tsx` → `import "@/styles/sections/hero.css";`
-  - `src/components/layout/TopControls.tsx` → `import "@/styles/layout/top-controls.css";`
+  - Using CSS Modules: `import styles from "./Hero.module.css";`
 
 #### Three-Layer Model
 - Tokens: centralized variables in `src/styles/tokens.css` (single `:root`, grouped). Do not change values without request.
-- Utilities: global helpers in `src/styles/utilities.css` (`content-container`, `full-bleed`, `section-*`, a11y helpers, hero utilities).
-- Section Styles: one file per component under `src/styles/sections|layout|ui` with clear class names, imported by the owning component.
+- Global Base: minimal reset + typography + color defaults live in `src/app/globals.css`. No component/layout styles here.
+- Component Styles: colocated CSS Modules (`*.module.css`) owned by each component under `src/components/**`.
 
 #### Section Rhythm
 - Use `section-*` utilities for vertical spacing (`section-md`, `section-md-b`, `section-footer`).
@@ -136,6 +133,18 @@ After (TSX + CSS):
 ```
 
 ---
+
+## Global Base Styles
+
+- When Tailwind is removed, a minimal global reset is mandatory to normalize browser defaults.
+- `src/app/globals.css` owns ONLY:
+  - tokens import
+  - minimal reset (box-sizing, margins, media elements, form controls)
+  - app-level defaults (background, text color, typography smoothing)
+  - neutral link and focus-visible styles
+- Fonts are defined once via `next/font` in `src/app/layout.tsx` and exposed as CSS variables (`--font-sans`, `--font-mono`) on the `<html>` element.
+- The `body` uses `font-family: var(--font-sans, system-ui, …)`; components inherit from body by default.
+- All component and layout visuals remain in their colocated CSS Modules.
 
 ## Motion & Behavior
 - Use Framer Motion for animations.
