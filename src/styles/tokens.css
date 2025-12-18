@@ -95,7 +95,7 @@
   --hero-bottom-hint: 24px;
 
   /* Component Highlights */
-  --nav-highlight-active: rgba(255,255,255,0.16);
+  --nav-highlight-active: rgba(255,255,255,0.12);
   --nav-highlight-hover: rgba(255,255,255,0.12);
 
   /* Coral capsule for bottom nav */

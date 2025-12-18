@@ -1,4 +1,11 @@
-.root { display: inline-block; }
+.root {
+	display: inline-block;
+	background: transparent;
+	border: 0;
+	padding: 0;
+	-webkit-appearance: none;
+	appearance: none;
+}
 .content {
 	border-radius: var(--radius-pill);
 	padding: 10px 14px;
