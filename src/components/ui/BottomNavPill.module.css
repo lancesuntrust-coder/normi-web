@@ -65,7 +65,8 @@
 	position: absolute;
 	inset: 0;
 	border-radius: var(--radius-inner);
-	background: rgba(255, 255, 255, 0.14);
+	/* Use token so states don't need to repeat values */
+	background: var(--nav-highlight-hover);
 	opacity: 0;
 	transition: background-color 180ms ease, opacity 180ms ease, box-shadow 180ms ease;
 	will-change: opacity, background-color;
@@ -78,10 +79,9 @@
 
 .item.hover .highlight {
 	opacity: 1;
-	background: rgba(255, 255, 255, 0.14);
 }
 
 .item.active .highlight {
 	opacity: 1;
-	background: rgba(255, 255, 255, 0.18);
+	background: var(--nav-highlight-active);
 }
