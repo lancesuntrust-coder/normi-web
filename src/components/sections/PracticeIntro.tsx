@@ -24,7 +24,6 @@ export function PracticeIntro() {
   });
 
   const headingScale = useTransform(scrollYProgress, [0, 0.1, 0.45], [1, 1, 0.14]);
-  const headingMaxWidth = useTransform(scrollYProgress, [0, 0.45], ["1400px", "175px"]);
 
   const card1X = useTransform(scrollYProgress, [0.1, 0.45], ["-320vw", "0%"]);
   const card1Y = useTransform(scrollYProgress, [0.1, 0.45], ["-320vh", "0%"]);
@@ -45,9 +44,9 @@ export function PracticeIntro() {
         <div className={styles.content}>
           <motion.h2
             className={styles.heading}
-            style={{ scale: headingScale, maxWidth: headingMaxWidth }}
+            style={{ scale: headingScale }}
           >
-            Practice real Japanese
+            Practice real{"\n"}Japanese.
           </motion.h2>
 
           <div className={styles.cards}>

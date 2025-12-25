@@ -37,6 +37,8 @@
 }
 
 .heading {
+  display: inline-block;
+  white-space: pre-line;
   margin: 0;
   margin-bottom: 16px;
   color: var(--brand-orange);
