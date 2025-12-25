@@ -4,7 +4,10 @@
 
 if [ -z "$husky_skip_init" ]; then
   debug () {
-    [ "$HUSKY_DEBUG" = "true" ] && echo "husky (debug) - $1"
+    if [ "$HUSKY_DEBUG" = "true" ]; then
+      echo "husky (debug) - $1"
+    fi
+    return 0
   }
 
   readonly hook_name="$(basename "$0")"
