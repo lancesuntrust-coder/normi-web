@@ -1,26 +1,16 @@
 .root {
-  position: fixed;
-  left: 0;
-  right: 0;
+  position: absolute;
+  left: var(--container-pad);
+  right: var(--container-pad);
   z-index: var(--z-nav);
   top: var(--overlay-top);
 }
 
 .row {
-  max-width: var(--container-max);
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: var(--container-pad);
-  padding-right: var(--container-pad);
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-@media (min-width: 640px) {
-  .row {
-    padding-left: var(--container-pad-sm);
-    padding-right: var(--container-pad-sm);
-  }
 }
 
 .logo {
@@ -46,7 +36,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  height: 44px;
+  height: 47px;
   border-radius: var(--radius-pill);
   padding: 0 18px;
   font-size: 0.875rem;

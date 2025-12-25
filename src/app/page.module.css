@@ -8,7 +8,7 @@
 .support {
   position: fixed;
   z-index: var(--z-nav);
-  bottom: var(--overlay-bottom);
+  bottom: var(--bottom-nav-bottom);
   right: var(--container-pad);
 }
 

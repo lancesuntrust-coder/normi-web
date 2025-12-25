@@ -8,7 +8,7 @@
 }
 .primary {
   background: var(--white-92);
-  color: var(--black-72);
+  color: var(--brand-orange);
   border: 1px solid var(--white-55);
   box-shadow: var(--shadow-cta);
 }

@@ -8,13 +8,13 @@
 }
 .content {
 	border-radius: var(--radius-pill);
-	padding: 10px 14px;
+	height: 47px;
+	padding: 0 18px;
 	display: inline-flex;
 	align-items: center;
 	gap: 0.5rem;
-	background: rgba(0,0,0,0.40);
+	background: rgba(0,0,0,0.30);
 	color: var(--white-92);
-	border: 1px solid var(--white-22);
 	backdrop-filter: blur(16px);
 	box-shadow: var(--shadow-cta);
 	transition: background 160ms ease;
