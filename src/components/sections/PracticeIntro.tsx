@@ -26,21 +26,21 @@ export function PracticeIntro() {
   const headingScale = useTransform(scrollYProgress, [0, 0.1, 0.45], [1, 1, 0.14]);
 
   // Cards start far offscreen and land in a loose cluster around the heading
-  const card1X = useTransform(scrollYProgress, [0.1, 0.45], ["-320vw", "-28vw"]);
-  const card1Y = useTransform(scrollYProgress, [0.1, 0.45], ["-320vh", "-24vh"]);
+  const card1X = useTransform(scrollYProgress, [0.1, 0.45], ["-140vw", "-28vw"]);
+  const card1Y = useTransform(scrollYProgress, [0.1, 0.45], ["-120vh", "-24vh"]);
 
-  const card2X = useTransform(scrollYProgress, [0.1, 0.45], ["420vw", "28vw"]);
-  const card2Y = useTransform(scrollYProgress, [0.1, 0.45], ["-420vh", "-24vh"]);
+  const card2X = useTransform(scrollYProgress, [0.1, 0.45], ["140vw", "28vw"]);
+  const card2Y = useTransform(scrollYProgress, [0.1, 0.45], ["-120vh", "-24vh"]);
 
-  const card3X = useTransform(scrollYProgress, [0.1, 0.45], ["-320vw", "-28vw"]);
-  const card3Y = useTransform(scrollYProgress, [0.1, 0.45], ["320vh", "18vh"]);
+  const card3X = useTransform(scrollYProgress, [0.1, 0.45], ["-140vw", "-28vw"]);
+  const card3Y = useTransform(scrollYProgress, [0.1, 0.45], ["120vh", "18vh"]);
 
-  const card4X = useTransform(scrollYProgress, [0.1, 0.45], ["420vw", "28vw"]);
-  const card4Y = useTransform(scrollYProgress, [0.1, 0.45], ["420vh", "20vh"]);
+  const card4X = useTransform(scrollYProgress, [0.1, 0.45], ["140vw", "28vw"]);
+  const card4Y = useTransform(scrollYProgress, [0.1, 0.45], ["120vh", "20vh"]);
   const cardVisibility = useTransform(scrollYProgress, [0, 0.12, 0.13], ["hidden", "hidden", "visible"]);
 
-  const card5X = useTransform(scrollYProgress, [0.1, 0.45], ["-520vw", "0%"]);
-  const card5Y = useTransform(scrollYProgress, [0.1, 0.45], ["520vh", "32vh"]);
+  const card5X = useTransform(scrollYProgress, [0.1, 0.45], ["-180vw", "0%"]);
+  const card5Y = useTransform(scrollYProgress, [0.1, 0.45], ["140vh", "32vh"]);
 
   return (
     <section ref={sectionRef} className={styles.root}>
