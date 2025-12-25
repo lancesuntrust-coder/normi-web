@@ -14,7 +14,7 @@ export function PracticeIntro() {
     x?: string | number;
     y?: string | number;
     scale?: string | number;
-  }) => `translate(${x}, ${y}) translate(-50%, -50%)${scale ? ` scale(${scale})` : ""}`;
+  }) => `translate(-50%, -50%) translate3d(${x}, ${y}, 0)${scale ? ` scale(${scale})` : ""}`;
 
   const sectionRef = useRef<HTMLElement | null>(null);
   const { scrollYProgress } = useScroll({
@@ -29,17 +29,17 @@ export function PracticeIntro() {
   const headingMaxWidth = useTransform(scrollYProgress, [0, 0.45], ["1400px", "175px"]);
   const descriptionOpacity = useTransform(scrollYProgress, [0, 0.4, 0.7], [0.6, 0.6, 0]);
 
-  const card1X = useTransform(scrollYProgress, [0.1, 0.45], ["-40vw", "50%"]);
-  const card1Y = useTransform(scrollYProgress, [0.1, 0.45], ["-30vh", "50%"]);
+  const card1X = useTransform(scrollYProgress, [0.1, 0.45], ["-60vw", "0%"]);
+  const card1Y = useTransform(scrollYProgress, [0.1, 0.45], ["-40vh", "0%"]);
 
-  const card2X = useTransform(scrollYProgress, [0.1, 0.45], ["140vw", "50%"]);
-  const card2Y = useTransform(scrollYProgress, [0.1, 0.45], ["-30vh", "50%"]);
+  const card2X = useTransform(scrollYProgress, [0.1, 0.45], ["60vw", "0%"]);
+  const card2Y = useTransform(scrollYProgress, [0.1, 0.45], ["-40vh", "0%"]);
 
-  const card3X = useTransform(scrollYProgress, [0.1, 0.45], ["-50vw", "50%"]);
-  const card3Y = useTransform(scrollYProgress, [0.1, 0.45], ["130vh", "50%"]);
+  const card3X = useTransform(scrollYProgress, [0.1, 0.45], ["-60vw", "0%"]);
+  const card3Y = useTransform(scrollYProgress, [0.1, 0.45], ["80vh", "0%"]);
 
-  const card4X = useTransform(scrollYProgress, [0.1, 0.45], ["140vw", "50%"]);
-  const card4Y = useTransform(scrollYProgress, [0.1, 0.45], ["130vh", "50%"]);
+  const card4X = useTransform(scrollYProgress, [0.1, 0.45], ["60vw", "0%"]);
+  const card4Y = useTransform(scrollYProgress, [0.1, 0.45], ["80vh", "0%"]);
 
   return (
     <section ref={sectionRef} className={styles.root}>
