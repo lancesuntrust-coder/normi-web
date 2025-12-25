@@ -38,6 +38,9 @@ export function PracticeIntro() {
   const card4Y = useTransform(scrollYProgress, [0.1, 0.45], ["420vh", "0%"]);
   const cardVisibility = useTransform(scrollYProgress, [0, 0.12, 0.13], ["hidden", "hidden", "visible"]);
 
+  const card5X = useTransform(scrollYProgress, [0.1, 0.45], ["-520vw", "0%"]);
+  const card5Y = useTransform(scrollYProgress, [0.1, 0.45], ["520vh", "0%"]);
+
   return (
     <section ref={sectionRef} className={styles.root}>
       <div className={styles.sticky}>
@@ -103,6 +106,17 @@ export function PracticeIntro() {
               <div className={styles.cardLabel}>Key phrases</div>
               <div className={styles.cardPhrases}>こんにちは</div>
               <div className={styles.cardText}>Learn phrases with natural pronunciation cues.</div>
+            </motion.div>
+
+            <motion.div
+              className={`${styles.card} ${styles.cardAccent}`}
+              style={{ x: card5X, y: card5Y, visibility: cardVisibility }}
+              transformTemplate={transformTemplate}
+            >
+              <div className={styles.cardLabel}>Scene challenge</div>
+              <div className={styles.cardTitle}>Cafe pickup</div>
+              <div className={styles.cardTextStrong}>「アイスラテをお願いします」</div>
+              <div className={styles.cardText}>Match tone, speed, and body language in context.</div>
             </motion.div>
           </div>
         </div>
