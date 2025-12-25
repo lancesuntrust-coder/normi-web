@@ -23,24 +23,24 @@ export function PracticeIntro() {
     offset: ["start start", "end start"],
   });
 
-  const headingScale = useTransform(scrollYProgress, [0, 0.1, 0.45], [1, 1, 0.14]);
+  const headingScale = useTransform(scrollYProgress, [0, 0.05, 0.3], [1, 1, 0.14]);
 
-  // Cards start far offscreen and land in a loose cluster around the heading
-  const card1X = useTransform(scrollYProgress, [0.1, 0.45], ["-140vw", "-28vw"]);
-  const card1Y = useTransform(scrollYProgress, [0.1, 0.45], ["-120vh", "-24vh"]);
+  // Cards start far offscreen and converge toward center
+  const card1X = useTransform(scrollYProgress, [0.05, 0.3], ["-330vw", "-5%"]);
+  const card1Y = useTransform(scrollYProgress, [0.05, 0.3], ["-350vh", "-25%"]);
 
-  const card2X = useTransform(scrollYProgress, [0.1, 0.45], ["140vw", "28vw"]);
-  const card2Y = useTransform(scrollYProgress, [0.1, 0.45], ["-120vh", "-24vh"]);
+  const card2X = useTransform(scrollYProgress, [0.05, 0.3], ["340vw", "-5%"]);
+  const card2Y = useTransform(scrollYProgress, [0.05, 0.3], ["-280vh", "0%"]);
 
-  const card3X = useTransform(scrollYProgress, [0.1, 0.45], ["-140vw", "-28vw"]);
-  const card3Y = useTransform(scrollYProgress, [0.1, 0.45], ["120vh", "18vh"]);
+  const card3X = useTransform(scrollYProgress, [0.05, 0.3], ["-420vw", "5%"]);
+  const card3Y = useTransform(scrollYProgress, [0.05, 0.3], ["0vh", "0%"]);
 
-  const card4X = useTransform(scrollYProgress, [0.1, 0.45], ["140vw", "28vw"]);
-  const card4Y = useTransform(scrollYProgress, [0.1, 0.45], ["120vh", "20vh"]);
-  const cardVisibility = useTransform(scrollYProgress, [0, 0.12, 0.13], ["hidden", "hidden", "visible"]);
+  const card4X = useTransform(scrollYProgress, [0.05, 0.3], ["420vw", "-5%"]);
+  const card4Y = useTransform(scrollYProgress, [0.05, 0.3], ["180vh", "0%"]);
 
-  const card5X = useTransform(scrollYProgress, [0.1, 0.45], ["-180vw", "0%"]);
-  const card5Y = useTransform(scrollYProgress, [0.1, 0.45], ["140vh", "32vh"]);
+  const card5X = useTransform(scrollYProgress, [0.05, 0.3], ["-240vw", "5%"]);
+  const card5Y = useTransform(scrollYProgress, [0.05, 0.3], ["260vh", "10%"]);
+  const cardVisibility = useTransform(scrollYProgress, [0, 0, 0.02], ["hidden", "hidden", "visible"]);
 
   return (
     <section ref={sectionRef} className={styles.root}>
@@ -50,17 +50,17 @@ export function PracticeIntro() {
             className={styles.heading}
             style={{ scale: headingScale }}
           >
-            Practice real{"\n"}Japanese.
+            Practice Real{"\n"}Japanese.
           </motion.h2>
 
           <div className={styles.cards}>
             <motion.div
-              className={`${styles.card} ${styles.cardImage}`}
+              className={`${styles.card} ${styles.cardImage} ${styles.cardPhoto}`}
               style={{ x: card1X, y: card1Y, visibility: cardVisibility }}
               transformTemplate={transformTemplate}
             >
               <Image
-                src="/hero/hero.jpg"
+                src="/hero/card1.jpg"
                 alt="Japanese conversation"
                 fill
                 sizes="(max-width: 768px) 60vw, 320px"
@@ -70,7 +70,7 @@ export function PracticeIntro() {
             </motion.div>
 
             <motion.div
-              className={styles.card}
+              className={`${styles.card} ${styles.cardBlue}`}
               style={{ x: card2X, y: card2Y, visibility: cardVisibility }}
               transformTemplate={transformTemplate}
             >
@@ -81,7 +81,7 @@ export function PracticeIntro() {
             </motion.div>
 
             <motion.div
-              className={`${styles.card} ${styles.cardLive}`}
+              className={`${styles.card} ${styles.cardLive} ${styles.cardGreen}`}
               style={{ x: card3X, y: card3Y, visibility: cardVisibility }}
               transformTemplate={transformTemplate}
             >
@@ -100,7 +100,7 @@ export function PracticeIntro() {
             </motion.div>
 
             <motion.div
-              className={styles.card}
+              className={`${styles.card} ${styles.cardPink}`}
               style={{ x: card4X, y: card4Y, visibility: cardVisibility }}
               transformTemplate={transformTemplate}
             >
