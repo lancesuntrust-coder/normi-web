@@ -40,6 +40,7 @@ export function PracticeIntro() {
 
   const card4X = useTransform(scrollYProgress, [0.1, 0.45], ["420vw", "0%"]);
   const card4Y = useTransform(scrollYProgress, [0.1, 0.45], ["420vh", "0%"]);
+  const cardVisibility = useTransform(scrollYProgress, [0, 0.12, 0.13], ["hidden", "hidden", "visible"]);
 
   return (
     <section ref={sectionRef} className={styles.root}>
@@ -61,7 +62,7 @@ export function PracticeIntro() {
           <div className={styles.cards}>
             <motion.div
               className={`${styles.card} ${styles.cardImage}`}
-              style={{ x: card1X, y: card1Y }}
+              style={{ x: card1X, y: card1Y, visibility: cardVisibility }}
               transformTemplate={transformTemplate}
             >
               <Image
@@ -76,7 +77,7 @@ export function PracticeIntro() {
 
             <motion.div
               className={styles.card}
-              style={{ x: card2X, y: card2Y }}
+              style={{ x: card2X, y: card2Y, visibility: cardVisibility }}
               transformTemplate={transformTemplate}
             >
               <div className={styles.cardLabel}>Lesson 12</div>
@@ -87,7 +88,7 @@ export function PracticeIntro() {
 
             <motion.div
               className={`${styles.card} ${styles.cardLive}`}
-              style={{ x: card3X, y: card3Y }}
+              style={{ x: card3X, y: card3Y, visibility: cardVisibility }}
               transformTemplate={transformTemplate}
             >
               <div className={styles.cardLiveRow}>
@@ -106,7 +107,7 @@ export function PracticeIntro() {
 
             <motion.div
               className={styles.card}
-              style={{ x: card4X, y: card4Y }}
+              style={{ x: card4X, y: card4Y, visibility: cardVisibility }}
               transformTemplate={transformTemplate}
             >
               <div className={styles.cardLabel}>Key phrases</div>
