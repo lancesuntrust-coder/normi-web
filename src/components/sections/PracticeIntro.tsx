@@ -32,14 +32,14 @@ export function PracticeIntro() {
   const card1X = useTransform(scrollYProgress, [0.1, 0.45], ["-320vw", "0%"]);
   const card1Y = useTransform(scrollYProgress, [0.1, 0.45], ["-320vh", "0%"]);
 
-  const card2X = useTransform(scrollYProgress, [0.1, 0.45], ["320vw", "0%"]);
-  const card2Y = useTransform(scrollYProgress, [0.1, 0.45], ["-320vh", "0%"]);
+  const card2X = useTransform(scrollYProgress, [0.1, 0.45], ["420vw", "0%"]);
+  const card2Y = useTransform(scrollYProgress, [0.1, 0.45], ["-420vh", "0%"]);
 
   const card3X = useTransform(scrollYProgress, [0.1, 0.45], ["-320vw", "0%"]);
   const card3Y = useTransform(scrollYProgress, [0.1, 0.45], ["320vh", "0%"]);
 
-  const card4X = useTransform(scrollYProgress, [0.1, 0.45], ["320vw", "0%"]);
-  const card4Y = useTransform(scrollYProgress, [0.1, 0.45], ["320vh", "0%"]);
+  const card4X = useTransform(scrollYProgress, [0.1, 0.45], ["420vw", "0%"]);
+  const card4Y = useTransform(scrollYProgress, [0.1, 0.45], ["420vh", "0%"]);
 
   return (
     <section ref={sectionRef} className={styles.root}>
