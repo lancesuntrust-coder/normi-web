@@ -19,26 +19,27 @@ export function PracticeIntro() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ["start end", "end start"],
+    // Start animation only once the section reaches the top of the viewport
+    offset: ["start start", "end start"],
   });
 
-  const badgeOpacity = useTransform(scrollYProgress, [0, 0.35, 0.6], [1, 1, 0]);
-  const badgeScale = useTransform(scrollYProgress, [0, 0.35, 0.6], [1, 1, 0.8]);
-  const headingScale = useTransform(scrollYProgress, [0, 0.05, 0.4], [1, 1, 0.14]);
-  const headingMaxWidth = useTransform(scrollYProgress, [0, 0.4], ["1400px", "175px"]);
-  const descriptionOpacity = useTransform(scrollYProgress, [0, 0.35, 0.6], [0.6, 0.6, 0]);
+  const badgeOpacity = useTransform(scrollYProgress, [0, 0.4, 0.7], [1, 1, 0]);
+  const badgeScale = useTransform(scrollYProgress, [0, 0.4, 0.7], [1, 1, 0.8]);
+  const headingScale = useTransform(scrollYProgress, [0, 0.1, 0.45], [1, 1, 0.14]);
+  const headingMaxWidth = useTransform(scrollYProgress, [0, 0.45], ["1400px", "175px"]);
+  const descriptionOpacity = useTransform(scrollYProgress, [0, 0.4, 0.7], [0.6, 0.6, 0]);
 
-  const card1X = useTransform(scrollYProgress, [0.05, 0.35], ["-40vw", "50%"]);
-  const card1Y = useTransform(scrollYProgress, [0.05, 0.35], ["-30vh", "50%"]);
+  const card1X = useTransform(scrollYProgress, [0.1, 0.45], ["-40vw", "50%"]);
+  const card1Y = useTransform(scrollYProgress, [0.1, 0.45], ["-30vh", "50%"]);
 
-  const card2X = useTransform(scrollYProgress, [0.05, 0.35], ["140vw", "50%"]);
-  const card2Y = useTransform(scrollYProgress, [0.05, 0.35], ["-30vh", "50%"]);
+  const card2X = useTransform(scrollYProgress, [0.1, 0.45], ["140vw", "50%"]);
+  const card2Y = useTransform(scrollYProgress, [0.1, 0.45], ["-30vh", "50%"]);
 
-  const card3X = useTransform(scrollYProgress, [0.05, 0.35], ["-50vw", "50%"]);
-  const card3Y = useTransform(scrollYProgress, [0.05, 0.35], ["130vh", "50%"]);
+  const card3X = useTransform(scrollYProgress, [0.1, 0.45], ["-50vw", "50%"]);
+  const card3Y = useTransform(scrollYProgress, [0.1, 0.45], ["130vh", "50%"]);
 
-  const card4X = useTransform(scrollYProgress, [0.05, 0.35], ["140vw", "50%"]);
-  const card4Y = useTransform(scrollYProgress, [0.05, 0.35], ["130vh", "50%"]);
+  const card4X = useTransform(scrollYProgress, [0.1, 0.45], ["140vw", "50%"]);
+  const card4Y = useTransform(scrollYProgress, [0.1, 0.45], ["130vh", "50%"]);
 
   return (
     <section ref={sectionRef} className={styles.root}>
