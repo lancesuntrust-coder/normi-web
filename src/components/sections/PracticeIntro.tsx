@@ -23,11 +23,8 @@ export function PracticeIntro() {
     offset: ["start start", "end start"],
   });
 
-  const badgeOpacity = useTransform(scrollYProgress, [0, 0.4, 0.7], [1, 1, 0]);
-  const badgeScale = useTransform(scrollYProgress, [0, 0.4, 0.7], [1, 1, 0.8]);
   const headingScale = useTransform(scrollYProgress, [0, 0.1, 0.45], [1, 1, 0.14]);
   const headingMaxWidth = useTransform(scrollYProgress, [0, 0.45], ["1400px", "175px"]);
-  const descriptionOpacity = useTransform(scrollYProgress, [0, 0.4, 0.7], [0.6, 0.6, 0]);
 
   const card1X = useTransform(scrollYProgress, [0.1, 0.45], ["-320vw", "0%"]);
   const card1Y = useTransform(scrollYProgress, [0.1, 0.45], ["-320vh", "0%"]);
@@ -46,18 +43,12 @@ export function PracticeIntro() {
     <section ref={sectionRef} className={styles.root}>
       <div className={styles.sticky}>
         <div className={styles.content}>
-          <motion.div className={styles.badge} style={{ opacity: badgeOpacity, scale: badgeScale }}>
-            Built for scenes, classes, and community
-          </motion.div>
           <motion.h2
             className={styles.heading}
             style={{ scale: headingScale, maxWidth: headingMaxWidth }}
           >
             Practice real Japanese
           </motion.h2>
-          <motion.p className={styles.description} style={{ opacity: descriptionOpacity }}>
-            Speak with confidence through live classes, scene-based practice, and community feedback.
-          </motion.p>
 
           <div className={styles.cards}>
             <motion.div
