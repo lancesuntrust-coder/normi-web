@@ -1,5 +1,4 @@
 "use client";
-import { motion } from "framer-motion";
 import Lenis from "lenis";
 // import { MessageCircle } from "lucide-react";
 import { useEffect, useRef } from "react";
@@ -7,7 +6,8 @@ import { useEffect, useRef } from "react";
 import { Footer } from "@/components/layout/Footer";
 import { TopControls } from "@/components/layout/TopControls";
 import { Hero } from "@/components/sections/Hero";
-import { ScenePreview } from "@/components/sections/ScenePreview";
+import { HowItWorks } from "@/components/sections/HowItWorks";
+import { PracticeIntro } from "@/components/sections/PracticeIntro";
 import { BottomNavPill } from "@/components/ui/BottomNavPill";
 import { SupportButton } from "@/components/ui/SupportButton";
 
@@ -48,45 +48,9 @@ export default function Home() {
         <Hero />
       </div>
 
-      {/* Subsequent sections (standardized gutters from layout wrapper) */}
-      <ScenePreview />
+      <PracticeIntro />
 
-      <section className={styles.sectionMd}>
-        <h2 className={styles.title}>How it works</h2>
-        <div className={styles.grid3}>
-          {["Speak in class", "Get private feedback", "Repeat in scenes"].map((t, i) => (
-            <motion.div
-              key={t}
-              className={styles.card}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-10%" }}
-              transition={{ delay: 0.06 * i, duration: 0.5 }}
-            >
-              <h3 className={styles.cardTitle}>{t}</h3>
-              <p className={styles.cardMuted}>Calm, human, and focused on natural speech.</p>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      <section className={styles.sectionMdB}>
-        <h2 className={styles.title}>Testimonials</h2>
-        <div className={styles.grid2}>
-          {["I finally speak without freezing.", "Feels like real life practice."] .map((q, i) => (
-            <motion.blockquote
-              key={i}
-              className={styles.quote}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-10%" }}
-              transition={{ delay: 0.06 * i, duration: 0.5 }}
-            >
-              “{q}”
-            </motion.blockquote>
-          ))}
-        </div>
-      </section>
+      <HowItWorks />
 
       <Footer />
     </div>

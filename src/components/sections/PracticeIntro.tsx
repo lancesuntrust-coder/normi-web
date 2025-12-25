@@ -23,28 +23,29 @@ export function PracticeIntro() {
     offset: ["start start", "end start"],
   });
 
-  const headingScale = useTransform(scrollYProgress, [0, 0.05, 0.3], [1, 1, 0.14]);
+  const headingScale = useTransform(scrollYProgress, [0, 0.05, 0.4], [1, 1, 0.14]);
+  const sectionLift = useTransform(scrollYProgress, [0.35, 0.6], ["0vh", "-100vh"]);
 
   // Cards start far offscreen and converge toward center
-  const card1X = useTransform(scrollYProgress, [0.05, 0.3], ["-330vw", "-5%"]);
-  const card1Y = useTransform(scrollYProgress, [0.05, 0.3], ["-350vh", "-25%"]);
+  const card1X = useTransform(scrollYProgress, [0.05, 0.4], ["-330vw", "-5%"]);
+  const card1Y = useTransform(scrollYProgress, [0.05, 0.4], ["-350vh", "-25%"]);
 
-  const card2X = useTransform(scrollYProgress, [0.05, 0.3], ["340vw", "-5%"]);
-  const card2Y = useTransform(scrollYProgress, [0.05, 0.3], ["-280vh", "0%"]);
+  const card2X = useTransform(scrollYProgress, [0.05, 0.4], ["340vw", "5%"]);
+  const card2Y = useTransform(scrollYProgress, [0.05, 0.4], ["-280vh", "0%"]);
 
-  const card3X = useTransform(scrollYProgress, [0.05, 0.3], ["-420vw", "5%"]);
-  const card3Y = useTransform(scrollYProgress, [0.05, 0.3], ["0vh", "0%"]);
+  const card3X = useTransform(scrollYProgress, [0.05, 0.4], ["-440vw", "-15%"]);
+  const card3Y = useTransform(scrollYProgress, [0.05, 0.4], ["0vh", "0%"]);
 
-  const card4X = useTransform(scrollYProgress, [0.05, 0.3], ["420vw", "-5%"]);
-  const card4Y = useTransform(scrollYProgress, [0.05, 0.3], ["180vh", "0%"]);
+  const card4X = useTransform(scrollYProgress, [0.05, 0.4], ["440vw", "5%"]);
+  const card4Y = useTransform(scrollYProgress, [0.05, 0.4], ["180vh", "0%"]);
 
-  const card5X = useTransform(scrollYProgress, [0.05, 0.3], ["-240vw", "5%"]);
-  const card5Y = useTransform(scrollYProgress, [0.05, 0.3], ["260vh", "10%"]);
-  const cardVisibility = useTransform(scrollYProgress, [0, 0, 0.02], ["hidden", "hidden", "visible"]);
+  const card5X = useTransform(scrollYProgress, [0.05, 0.4], ["-240vw", "-5%"]);
+  const card5Y = useTransform(scrollYProgress, [0.05, 0.4], ["280vh", "10%"]);
+  const cardVisibility = useTransform(scrollYProgress, [0, 0, 0.4], ["hidden", "hidden", "visible"]);
 
   return (
     <section ref={sectionRef} className={styles.root}>
-      <div className={styles.sticky}>
+      <motion.div className={styles.sticky} style={{ y: sectionLift }}>
         <div className={styles.content}>
           <motion.h2
             className={styles.heading}
@@ -121,7 +122,7 @@ export function PracticeIntro() {
             </motion.div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

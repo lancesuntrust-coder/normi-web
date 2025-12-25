@@ -1,15 +1,15 @@
 .root {
   position: relative;
-  height: 200vh;
+  height: 180vh;
   background: var(--on-brand);
   width: 100vw;
 }
 
 @media (max-width: 1024px) {
-  .root { height: 260vh; }
+  .root { height: 180vh; }
 }
 @media (max-width: 768px) {
-  .root { height: 220vh; }
+  .root { height: 170vh; }
 }
 
 .sticky {
